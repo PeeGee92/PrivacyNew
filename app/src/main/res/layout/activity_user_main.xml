@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".user.UserMainActivity">
+
+    <LinearLayout
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btn_companies_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Show Companies List"
+            android:layout_margin="20dp"
+            android:textAppearance="@android:style/TextAppearance.Large"/>
+
+        <Button
+            android:id="@+id/btn_user_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Data Settings"
+            android:layout_margin="20dp"
+            android:textAppearance="@android:style/TextAppearance.Large"/>
+
+        <Button
+            android:id="@+id/btn_track_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Track My Data"
+            android:layout_margin="20dp"
+            android:textAppearance="@android:style/TextAppearance.Large"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
