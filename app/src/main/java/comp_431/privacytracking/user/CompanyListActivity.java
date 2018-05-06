@@ -11,7 +11,9 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import comp_431.privacytracking.LoginActivity;
 import comp_431.privacytracking.R;
+import comp_431.privacytracking.database.company.CompanyDB;
 import comp_431.privacytracking.user.adapter.UserCompanyListAdapter;
 
 public class CompanyListActivity extends AppCompatActivity {
@@ -36,7 +38,7 @@ public class CompanyListActivity extends AppCompatActivity {
 
     // TODO
     private List<String> getCompaniesList() {
-        return null;
+       List<CompanyDB> companies =  LoginActivity.db.CompanyDAO().getAll();
     }
 
     @OnClick(R.id.fab)
