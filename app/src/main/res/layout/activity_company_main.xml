@@ -14,28 +14,28 @@
         android:gravity="center">
 
         <Button
-            android:id="@+id/btn_companies_list"
+            android:id="@+id/btn_users_list"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Show Companies List"
             android:layout_margin="20dp"
-            android:textAppearance="@android:style/TextAppearance.Large"/>
+            android:text="Show User List"
+            android:textAppearance="@android:style/TextAppearance.Large" />
 
         <Button
-            android:id="@+id/btn_user_data"
+            android:id="@+id/btn_company_data"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="20dp"
             android:text="Data Settings"
-            android:layout_margin="20dp"
-            android:textAppearance="@android:style/TextAppearance.Large"/>
+            android:textAppearance="@android:style/TextAppearance.Large" />
 
         <Button
-            android:id="@+id/btn_track_data"
+            android:id="@+id/btn_original_records"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Track My Data"
             android:layout_margin="20dp"
-            android:textAppearance="@android:style/TextAppearance.Large"/>
+            android:text="Original Records"
+            android:textAppearance="@android:style/TextAppearance.Large" />
 
     </LinearLayout>
 
