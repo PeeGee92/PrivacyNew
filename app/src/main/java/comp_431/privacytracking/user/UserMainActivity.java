@@ -1,5 +1,6 @@
 package comp_431.privacytracking.user;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -33,7 +34,7 @@ public class UserMainActivity extends AppCompatActivity {
                 // TODO start intent
                 break;
             case R.id.btn_user_data:
-                // TODO start intent
+                startActivity(new Intent(this, UserDataActivity.class));
                 break;
             case R.id.btn_track_data:
                 // TODO start intent

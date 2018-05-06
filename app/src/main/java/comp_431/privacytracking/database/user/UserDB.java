@@ -12,8 +12,6 @@ import java.util.ArrayList;
 @Entity // TODO add optional data (null default)
 public class UserDB {
 
-    public enum listIndex {userEmail, userFirstName, userLastName, userAddress, userCity, userCountry, userZip}
-
     @PrimaryKey
     @NonNull
     private String userId;
