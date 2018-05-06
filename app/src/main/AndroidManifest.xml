@@ -27,7 +27,8 @@
         <activity android:name=".user.UserMainActivity" />
         <activity android:name=".company.UserContractsActivity" />
         <activity android:name=".company.CompanyMainActivity" />
-        <activity android:name=".user.UserDataActivity"></activity>
+        <activity android:name=".user.UserDataActivity" />
+        <activity android:name=".company.CompanyRequestdata"></activity>
     </application>
 
 </manifest>
