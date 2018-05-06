@@ -1,5 +1,6 @@
 package comp_431.privacytracking.company.adapters;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,8 @@ import android.widget.TextView;
 import java.util.List;
 
 import comp_431.privacytracking.R;
+import comp_431.privacytracking.company.UserContractsActivity;
+import comp_431.privacytracking.company.UserListActivity;
 
 public class CompanyUserListAdapter extends RecyclerView.Adapter<CompanyUserListAdapter.ViewHolder> {
 
@@ -18,8 +21,14 @@ public class CompanyUserListAdapter extends RecyclerView.Adapter<CompanyUserList
     private final View.OnClickListener myOnClickListener = new View.OnClickListener()  {
         public void onClick(View view) {
             int itemPosition = recyclerView.getChildLayoutPosition(view);
+            String id = userList.get(itemPosition);
+            view.getContext().startActivity(new Intent(view.getContext(), UserContractsActivity.class).putExtra("Id",id));
         }
     };
+
+    public CompanyUserListAdapter(List<String> userIDs){
+        this.userList = userIDs;
+    }
 
     @Override
     public CompanyUserListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
