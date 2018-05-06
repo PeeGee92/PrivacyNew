@@ -25,6 +25,7 @@ import java.util.regex.Pattern;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import comp_431.privacytracking.company.CompanyMainActivity;
 import comp_431.privacytracking.database.AppDatabase;
 import comp_431.privacytracking.database.user.UserDB;
 import comp_431.privacytracking.user.UserMainActivity;
@@ -172,10 +173,8 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         if (company) {
-            // TODO launch company interface
-            Log.d("AUTH_TEST", "userWithDB: " + "Company User");
+            startActivity(new Intent(this, CompanyMainActivity.class));
         } else {
-            // TODO check
             startActivity(new Intent(this, UserMainActivity.class));
         }
     }
