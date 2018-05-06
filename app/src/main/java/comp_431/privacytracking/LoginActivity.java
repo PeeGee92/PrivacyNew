@@ -62,10 +62,11 @@ public class LoginActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "privacy_tracker")
                 .allowMainThreadQueries()
+                .fallbackToDestructiveMigration()
                 .build();
 
         rbIndividual.setChecked(true);
-        dbmanag =  new DatabaseManager(getApplicationContext());
+        dbmanag =  new DatabaseManager();
     }
 
     @Override

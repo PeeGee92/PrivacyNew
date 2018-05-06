@@ -19,18 +19,6 @@ import android.content.Context;
 
 // TODO: Use convertors when inserting and taking info from the database. ( Long <-> Date)
 public class DatabaseManager {
-    // Hello
-
-    //public static AppDatabase LoginActivity.db;
-   // public static Convertors convert;
-
-    public DatabaseManager(Context context){
-        // Database
-//        LoginActivity.db = Room.databaseBuilder(context, AppDatabase.class, "privacy_tracker")
-//                .allowMainThreadQueries()
-//                .build();
-//
-    }
 
    //TODO: New User;
 

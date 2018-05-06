@@ -11,6 +11,7 @@ public class AListBooleansTypeConvertors {
     @TypeConverter
     public static Integer BooleanALTOInteger(ArrayList<Boolean> booleanslist ){
         Integer result = 0;
+
         for(int i=0;i<booleanslist.size();i++){ // 1=True 2=False
             if(booleanslist.get(i)){
                 result +=1;

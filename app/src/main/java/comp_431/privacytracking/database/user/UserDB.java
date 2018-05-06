@@ -2,6 +2,7 @@ package comp_431.privacytracking.database.user;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
@@ -10,6 +11,8 @@ import java.util.ArrayList;
 
 @Entity // TODO add optional data (null default)
 public class UserDB {
+
+    public enum listIndex {userEmail, userFirstName, userLastName, userAddress, userCity, userCountry, userZip}
 
     @PrimaryKey
     @NonNull
@@ -99,14 +102,6 @@ public class UserDB {
         this.companyUser = companyUser;
     }
 
-    //    public Timestamp getUserGenesisTime() {
-//        return userGenesisTime;
-//    }
-//
-//    public void setUserGenesisTime(Timestamp userGenesisTime) {
-//        this.userGenesisTime = userGenesisTime;
-//    }
-
     public String getUserCity() {
         return userCity;
     }
@@ -143,5 +138,17 @@ public class UserDB {
         this.userId = userId;
         this.userEmail = userEmail;
         this.companyUser = companyUser;
+
+        this.userAddress = "";
+        this.userCity = "";
+        this.userCountry = "";
+        this.userFirstName = "";
+        this.userLastName = "";
+        this.userZip = "";
+        this.userShareList = new ArrayList<>();
+
+        for (int i = 0; i < 7; i++) {
+            userShareList.add(false);
+        }
     }
 }
