@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -39,6 +40,8 @@ public class CompanyListActivity extends AppCompatActivity {
     // TODO
     private List<String> getCompaniesList() {
        List<CompanyDB> companies =  LoginActivity.db.CompanyDAO().getAll();
+       List<String> string = new ArrayList<>();
+       return string;
     }
 
     @OnClick(R.id.fab)

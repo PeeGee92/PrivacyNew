@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true">
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_field_margin"
+            android:layout_weight="1"
+            android:text="Save" />
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_field_margin"
+            android:layout_weight="1"
+            android:text="Cancel" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvEmail"
+        android:layout_width="@dimen/text_field_width"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="@dimen/text_field_margin"
+        android:text="Email"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+    <TextView
+        android:id="@+id/etFirstName"
+        android:layout_width="@dimen/text_field_width"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tvEmail"
+        android:layout_margin="@dimen/text_field_margin"
+        android:hint="First Name"
+        android:inputType="textPersonName"
+        android:text="First name"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+    <TextView
+        android:id="@+id/etLastName"
+        android:layout_width="@dimen/text_field_width"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/etFirstName"
+        android:layout_margin="@dimen/text_field_margin"
+        android:hint="Last Name"
+        android:inputType="textPersonName"
+        android:text="Last name"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+    <TextView
+        android:id="@+id/etAddress"
+        android:layout_width="@dimen/text_field_width"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/etLastName"
+        android:layout_margin="@dimen/text_field_margin"
+        android:hint="Address"
+        android:inputType="textPersonName"
+        android:text="Address"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+    <TextView
+        android:id="@+id/etCountry"
+        android:layout_width="@dimen/text_field_width"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/etAddress"
+        android:layout_margin="@dimen/text_field_margin"
+        android:hint="Country"
+        android:inputType="textPersonName"
+        android:text="Country"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+    <TextView
+        android:id="@+id/etCity"
+        android:layout_width="@dimen/text_field_width"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/etCountry"
+        android:layout_margin="@dimen/text_field_margin"
+        android:hint="City"
+        android:inputType="textPersonName"
+        android:text="City"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
+    <TextView
+        android:id="@+id/etZipCode"
+        android:layout_width="@dimen/text_field_width"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="Zip Code"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/etCity"
+        android:layout_margin="@dimen/text_field_margin"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
+
+    <Switch
+        android:id="@+id/swEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="@dimen/text_field_margin"
+        android:layout_alignBaseline="@id/tvEmail" />
+
+    <Switch
+        android:id="@+id/swFirstName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="@dimen/text_field_margin"
+        android:layout_alignBaseline="@id/etFirstName"/>
+
+    <Switch
+        android:id="@+id/swLastName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="@dimen/text_field_margin"
+        android:layout_alignBaseline="@id/etLastName"/>
+
+    <Switch
+        android:id="@+id/swAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="@dimen/text_field_margin"
+        android:layout_alignBaseline="@id/etAddress"/>
+
+    <Switch
+        android:id="@+id/swCountry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="@dimen/text_field_margin"
+        android:layout_alignBaseline="@id/etCountry"/>
+
+    <Switch
+        android:id="@+id/swCity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="@dimen/text_field_margin"
+        android:layout_alignBaseline="@id/etCity"/>
+
+    <Switch
+        android:id="@+id/swZipCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="@dimen/text_field_margin"
+        android:layout_alignBaseline="@id/etZipCode"/>
+
+</RelativeLayout>
