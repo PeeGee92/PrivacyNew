@@ -2,27 +2,67 @@ package comp_431.privacytracking.user;
 
 public class UserEnum {
 
-    public UserEnum(String field) {
-        returnValue(field);
+    public int valueFromString(String field) {
+        return returnValue(field);
     }
+
+    public String StringFromValue(int value) {
+        return returnFiel(value);
+    }
+
+    private String returnFiel(int value) {
+        switch (value) {
+            case 0:
+                return "userEmail";
+
+            case 1:
+                return "userFirstName";
+
+            case 2:
+                return "userLastName";
+
+            case 3:
+                return "userAddress";
+
+            case 4:
+                return "userCity";
+
+            case 5:
+                return "userCountry";
+
+            case 6:
+                return "userZip";
+
+        }
+        return null;
+    }
+
 
     private int returnValue(String field) {
         switch (field) {
             case "userEmail":
                 return 0;
-                break;
+
             case "userFirstName":
-                break;
+                return 1;
+
             case "userLastName":
-                break;
+                return 2;
+
             case "userAddress":
-                break;
+                return 3;
+
             case "userCity":
-                break;
+                return 4;
+
             case "userCountry":
-                break;
+                return 5;
+
             case "userZip":
-                break;
+                return 6;
+
         }
+        return -1;
     }
+
 }

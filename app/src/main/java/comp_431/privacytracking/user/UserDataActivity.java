@@ -60,7 +60,7 @@ public class UserDataActivity extends AppCompatActivity {
     }
 
     private void setDataToFields() {
-        Object test = new UserDB.listIndex;
+        //Object test = new UserDB.listIndex;
 
         etAddress.setText(userDB.getUserEmail());
         etCity.setText(userDB.getUserCity());
@@ -70,6 +70,6 @@ public class UserDataActivity extends AppCompatActivity {
         etLastName.setText(userDB.getUserLastName());
         etEmail.setText(userDB.getUserEmail());
 
-        swEmail.setChecked((userDB.getUserShareList().get(UserDB.listIndex.userEmail) == 1) ? true : false );
+        //swEmail.setChecked((userDB.getUserShareList().get(UserDB.listIndex.userEmail) == 1) ? true : false );
     }
 }

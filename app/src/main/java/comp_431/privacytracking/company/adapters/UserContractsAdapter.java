@@ -21,6 +21,10 @@ public class UserContractsAdapter extends RecyclerView.Adapter<UserContractsAdap
         }
     };
 
+    public UserContractsAdapter(List<String> contractList){
+        this.contractsList=contractList;
+    }
+
     @Override
     public UserContractsAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.contract_item, parent, false);

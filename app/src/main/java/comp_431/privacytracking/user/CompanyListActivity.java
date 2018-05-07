@@ -39,6 +39,7 @@ public class CompanyListActivity extends AppCompatActivity {
     // TODO
     private List<String> getCompaniesList() {
        List<CompanyDB> companies =  LoginActivity.db.CompanyDAO().getAll();
+       return null;
     }
 
     @OnClick(R.id.fab)
