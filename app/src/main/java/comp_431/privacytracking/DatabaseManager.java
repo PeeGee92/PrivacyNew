@@ -83,6 +83,7 @@ public class DatabaseManager {
 
         for(int i=0;i<candidates.size();i++){ //Lets filter the results.
             actualCandidate = candidates.get(i);
+            if(actualCandidate.getDeleted()){ return;}
             sharelistcandidate = actualCandidate.getShareList();
             selected = true;
             for( int j=0;j<sharelistcandidate.size();j++) {
@@ -166,6 +167,19 @@ public class DatabaseManager {
 
     public List<MetaDB> userOriginalContracts(String userID){
         return LoginActivity.db.metaDAO().OriginalRecordsFromUser(userID);
+    }
+
+    public List<String> companiesUserHasNoContractWith(){
+        List<String> allCompaniesIds = LoginActivity.db.CompanyDAO().getAllIds();
+        List<MetaDB> userOrigContracts = userOriginalContracts(LoginActivity.currentUser.toString());
+        MetaDB actual;
+        for(int i=0;i<userOrigContracts.size();i++){
+            actual = userOrigContracts.get(i);
+            if(allCompaniesIds.contains(actual.getCompanyId())){
+                allCompaniesIds.remove(actual.getCompanyId());
+            }
+        }
+        return allCompaniesIds;
     }
 
     public List<MetaDB> companyOriginalContracts(String companyId){

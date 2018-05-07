@@ -13,6 +13,9 @@ public interface CompanyDAO {
     @Query("SELECT * FROM companydb")
     public List<CompanyDB> getAll();
 
+    @Query("SELECT CompanyId FROM companydb")
+    public List<String> getAllIds();
+
     @Query("SELECT * FROM companydb WHERE companyId = :companyId")
     public CompanyDB getCompanyById(String companyId);
 

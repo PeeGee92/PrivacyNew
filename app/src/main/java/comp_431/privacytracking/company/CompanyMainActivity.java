@@ -36,7 +36,7 @@ public class CompanyMainActivity extends AppCompatActivity {
                 startActivity(new Intent(this, UserListActivity.class));
                 break;
             case R.id.btn_company_data:
-                //startActivity(new Intent(this, CompanyDataActivity.class));
+                startActivity(new Intent(this, CompanyDataActivity.class));
                 break;
             case R.id.btn_original_records:
                 startActivity(new Intent(this, CompanyOriginalRecordsActivity.class));
