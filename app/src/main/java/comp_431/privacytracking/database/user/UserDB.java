@@ -131,7 +131,6 @@ public class UserDB {
         this.userShareList = shareOrNot;
     }
 
-//Todo: ??
     public UserDB(@NonNull String userId, String userEmail, boolean companyUser) {
         this.userId = userId;
         this.userEmail = userEmail;
@@ -143,10 +142,14 @@ public class UserDB {
         this.userFirstName = "";
         this.userLastName = "";
         this.userZip = "";
-        this.userShareList = new ArrayList<>();
 
-        for (int i = 0; i < 7; i++) {
-            userShareList.add(false);
+        if ( this.userShareList == null) {
+            this.userShareList = new ArrayList<>();
+        }
+        if (this.userShareList.size() <= 0) {
+            for (int i = 0; i < 7; i++) {
+                this.userShareList.add(false);
+            }
         }
     }
 }
