@@ -26,13 +26,20 @@ public class Request1Adapter extends RecyclerView.Adapter<Request1Adapter.ViewHo
             LoginActivity.dbmanag.CompanyrequestCompany(LoginActivity.currentUser.toString(),companiesList.get(itemPosition));
         }
     };
+    @Override
+    public void onAttachedToRecyclerView(RecyclerView recyclerView) {
+        super.onAttachedToRecyclerView(recyclerView);
+
+        this.recyclerView = recyclerView;
+    }
 
     public Request1Adapter(List<String> companies){
         this.companiesList = companies;
     }
+
     @Override
     public Request1Adapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.contract_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.adaptor_item, parent, false);
         view.setOnClickListener(myOnClickListener);
         return new Request1Adapter.ViewHolder(view);
     }
@@ -40,8 +47,8 @@ public class Request1Adapter extends RecyclerView.Adapter<Request1Adapter.ViewHo
     @Override
     public void onBindViewHolder(Request1Adapter.ViewHolder holder, int position) {
         // TODO get names from list
-        holder.tvUserName.setText(companiesList.get(position));
-        holder.tvCompanyName.setText(companiesList.get(position));
+        holder.tv.setText(companiesList.get(position));
+
     }
 
     @Override
@@ -53,14 +60,13 @@ public class Request1Adapter extends RecyclerView.Adapter<Request1Adapter.ViewHo
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView tvUserName;
-        TextView tvCompanyName;
+
+        TextView tv;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
-            tvUserName = itemView.findViewById(R.id.tvUserName);
-            tvCompanyName = itemView.findViewById(R.id.tvCompanyName);
+            tv = itemView.findViewById(R.id.tvText);
         }
     }
 }

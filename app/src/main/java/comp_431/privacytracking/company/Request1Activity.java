@@ -9,9 +9,11 @@ import android.view.View;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 import comp_431.privacytracking.LoginActivity;
 import comp_431.privacytracking.R;
+import comp_431.privacytracking.company.adapters.Request1Adapter;
 import comp_431.privacytracking.company.adapters.UserContractsAdapter;
 
 public class Request1Activity extends AppCompatActivity {
@@ -25,8 +27,10 @@ public class Request1Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_request1);
+        ButterKnife.bind(this);
+
         companiesList.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new UserContractsAdapter(getAllCompanyList());
+        adapter = new Request1Adapter(getAllCompanyList());
         companiesList.setAdapter(adapter);
     }
     private List<String> getAllCompanyList(){

@@ -72,7 +72,7 @@ public class UserCompanyListAdapter extends RecyclerView.Adapter<UserCompanyList
 
     @Override
     public UserCompanyListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.company_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.adaptor_item, parent, false);
         view.setOnClickListener(myOnClickListener);
         return new ViewHolder(view);
     }
