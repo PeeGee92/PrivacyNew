@@ -21,33 +21,37 @@ public class AListBooleansTypeConvertors {
             }
             result = result*10;
         }
-        return result;
+        return result/10;
     }
 
     @TypeConverter
     public static ArrayList<Boolean> IntegerTOBooleanAL(Integer integerlist ){
-        ArrayList<Boolean> booleansListInverted = new ArrayList<>();
-        ArrayList<Boolean> booleansList = new ArrayList<>();
-        Integer size=0;
-        Integer copy = integerlist;
-        while(copy > 2){
-            copy = copy/10;
-            size++;
-        }
-        while(integerlist >= 1 ){
-            if(integerlist%10 == 1){
-                booleansListInverted.add(true);
+        if (integerlist >=0) {
+            ArrayList<Boolean> booleansListInverted = new ArrayList<>();
+            ArrayList<Boolean> booleansList = new ArrayList<>();
+            Integer size = 0;
+            Integer copy = integerlist;
+            while (copy > 2) {
+                copy = copy / 10;
+                size++;
             }
-            else {
-                booleansListInverted.add(false);
-            }
+            while (integerlist >= 1) {
+                if (integerlist % 10 == 1) {
+                    booleansListInverted.add(true);
+                } else {
+                    booleansListInverted.add(false);
+                }
 
-            integerlist /= 10;
-        }
-        for(int i=0; i< booleansListInverted.size();i++){
-            booleansList.add(booleansListInverted.get(size));
-            size--;
-        }
+                integerlist /= 10;
+            }
+            for (int i = 0; i < booleansListInverted.size(); i++) {
+                booleansList.add(booleansListInverted.get(size));
+                size--;
+            }
         return booleansList;
+        }
+        else {
+            return new ArrayList<>();
+        }
     }
 }
