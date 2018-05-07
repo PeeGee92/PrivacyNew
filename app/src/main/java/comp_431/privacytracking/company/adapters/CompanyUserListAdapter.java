@@ -22,6 +22,7 @@ public class CompanyUserListAdapter extends RecyclerView.Adapter<CompanyUserList
         public void onClick(View view) {
             int itemPosition = recyclerView.getChildLayoutPosition(view);
             String id = userList.get(itemPosition);
+            //TODO: Create a new class for showing all the contrats with one user.
             view.getContext().startActivity(new Intent(view.getContext(), UserContractsActivity.class).putExtra("Id",id));
         }
     };

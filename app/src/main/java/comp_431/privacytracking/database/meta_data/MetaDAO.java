@@ -24,4 +24,8 @@ public interface MetaDAO {
     @Query("SELECT * FROM metadb WHERE backward_reference = '' AND UserId = :UserId ")
     public List<MetaDB> OriginalRecordsFromUser(String UserId);
 
+    @Query("SELECT * FROM metadb WHERE CompanyId = :CompanyId AND UserId = :UserId ")
+    public List<MetaDB> UserContractsInCompany(String UserId, String CompanyId);
+
+
 }
