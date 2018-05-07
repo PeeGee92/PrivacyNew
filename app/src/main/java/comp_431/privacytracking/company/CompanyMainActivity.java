@@ -41,13 +41,8 @@ public class CompanyMainActivity extends AppCompatActivity {
             case R.id.btn_original_records:
                 startActivity(new Intent(this, CompanyOriginalRecordsActivity.class));
                 break;
-<<<<<<< HEAD
-            case R.id.btn_request_contracts:
-                startActivity(new Intent(this, RequestActivity.class));
-=======
             case R.id.btn_forward_contracts:
-                startActivity(new Intent(this, Request1Activity.class));
->>>>>>> master
+                startActivity(new Intent(this, RequestActivity.class));
                 break;
         }
     }
