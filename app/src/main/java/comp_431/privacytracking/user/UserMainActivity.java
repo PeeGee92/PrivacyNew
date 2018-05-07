@@ -31,7 +31,7 @@ public class UserMainActivity extends AppCompatActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_companies_list:
-                // TODO start intent
+                startActivity(new Intent(this, CompanyListActivity.class));
                 break;
             case R.id.btn_user_data:
                 startActivity(new Intent(this, UserDataActivity.class));

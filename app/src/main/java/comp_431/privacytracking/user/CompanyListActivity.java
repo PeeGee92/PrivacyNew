@@ -38,7 +38,7 @@ public class CompanyListActivity extends AppCompatActivity {
 
     // TODO
     private List<CompanyDB> getCompaniesList() {
-       return LoginActivity.db.CompanyDAO().getAll();
+       return LoginActivity.dbmanag.companiesUserHasNoContractWith();
     }
 
     @OnClick(R.id.fab)
