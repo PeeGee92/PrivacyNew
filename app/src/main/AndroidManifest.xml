@@ -31,7 +31,10 @@
         <activity android:name=".company.CompanyMainActivity" />
         <activity android:name=".user.UserDataActivity" />
         <activity android:name=".company.CompanyOriginalRecordsActivity" />
-        <activity android:name=".company.Request1Activity"></activity>
+        <activity android:name=".company.Request1Activity">
+        <activity android:name=".company.CompanyDataActivity">
+
+        </activity>
     </application>
 
 </manifest>
