@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import comp_431.privacytracking.LoginActivity;
 import comp_431.privacytracking.R;
 import comp_431.privacytracking.company.UserContractsActivity;
 
@@ -22,8 +23,7 @@ public class Request1Adapter extends RecyclerView.Adapter<Request1Adapter.ViewHo
     private final View.OnClickListener myOnClickListener = new View.OnClickListener()  {
         public void onClick(View view) {
             int itemPosition = recyclerView.getChildLayoutPosition(view);
-            //view.getContext().startActivity(new Intent(view.getContext(), UserContractsActivity.class).putExtra("Id",id));
-            // TODO: JUST SELECT COMPANY AND IT MAKES THE TRANSACTION :)
+            LoginActivity.dbmanag.CompanyrequestCompany(LoginActivity.currentUser.toString(),companiesList.get(itemPosition));
         }
     };
 
