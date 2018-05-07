@@ -7,10 +7,30 @@ import android.support.annotation.NonNull;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Calendar;
+
+import comp_431.privacytracking.DatabaseManager;
+import comp_431.privacytracking.LoginActivity;
 
 
 @Entity
 public class CompanyDB {
+
+    public CompanyDB(@NonNull String companyId) {
+        this.companyId = companyId;
+
+        this.companyName = "";
+        this.companyGenesisTime = System.currentTimeMillis();
+
+        if ( this.companyRequiredFields == null) {
+            this.companyRequiredFields = new ArrayList<>();
+        }
+        if (this.companyRequiredFields.size() <= 0) {
+            for (int i = 0; i < 7; i++) {
+                this.companyRequiredFields.add(false);
+            }
+        }
+    }
 
     @PrimaryKey
     @NonNull

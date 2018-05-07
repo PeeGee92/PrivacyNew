@@ -19,11 +19,6 @@ public class UserDB {
     @ColumnInfo (name = "user_email")
     private String userEmail;
 
-    /*
-    @ColumnInfo ( name ="user_password")
-    private String userPassword;
-    */
-
     @ColumnInfo (name = "user_first_name")
     private String userFirstName;
 
@@ -41,12 +36,6 @@ public class UserDB {
 
     @ColumnInfo (name = "user_zip")
     private String userZip;
-
-    @ColumnInfo (name = "user_type")
-    private boolean companyUser;
-
-//    @ColumnInfo (name = "user_genesis_time")
-//    private Timestamp userGenesisTime;
 
     @ColumnInfo (name = "user_userShareList")
     private ArrayList <Boolean> userShareList;
@@ -92,14 +81,6 @@ public class UserDB {
         this.userAddress = userAddress;
     }
 
-    public boolean isCompanyUser() {
-        return companyUser;
-    }
-
-    public void setCompanyUser(boolean companyUser) {
-        this.companyUser = companyUser;
-    }
-
     public String getUserCity() {
         return userCity;
     }
@@ -131,10 +112,9 @@ public class UserDB {
         this.userShareList = shareOrNot;
     }
 
-    public UserDB(@NonNull String userId, String userEmail, boolean companyUser) {
+    public UserDB(@NonNull String userId, String userEmail) {
         this.userId = userId;
         this.userEmail = userEmail;
-        this.companyUser = companyUser;
 
         this.userAddress = "";
         this.userCity = "";
