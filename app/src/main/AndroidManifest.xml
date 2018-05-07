@@ -34,6 +34,8 @@
         <activity android:name=".company.CompanyDataActivity" />
         <activity android:name=".company.CompanyOriginalRecordsActivity" />
         <activity android:name=".company.Request1Activity" />
+        <activity android:name=".user.TrackRecursiveActivity" />
+
     </application>
 
 </manifest>
