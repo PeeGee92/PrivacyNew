@@ -11,29 +11,26 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import comp_431.privacytracking.LoginActivity;
 import comp_431.privacytracking.R;
-import comp_431.privacytracking.company.UserContractsActivity;
-import comp_431.privacytracking.database.company.CompanyDB;
 import comp_431.privacytracking.database.meta_data.MetaDB;
 import comp_431.privacytracking.user.TrackRecursiveActivity;
 import comp_431.privacytracking.user.UserEnum;
 
-public class TrackDataActivityAdapter extends RecyclerView.Adapter<TrackDataActivityAdapter.ViewHolder> {
+public class TrackRecursiveActivityAdapter extends RecyclerView.Adapter<TrackRecursiveActivityAdapter.ViewHolder>{
 
     RecyclerView recyclerView;
-    List<MetaDB> originalRecords;
+    List<MetaDB> records;
 
     private final View.OnClickListener myOnClickListener = new View.OnClickListener()  {
         public void onClick(View view) {
             int itemPosition = recyclerView.getChildLayoutPosition(view);
-            MetaDB id = originalRecords.get(itemPosition);
+            MetaDB id = records.get(itemPosition);
             view.getContext().startActivity(new Intent(view.getContext(),TrackRecursiveActivity.class).putExtra("Record",id.getUri()));
         }
     };
 
-    public TrackDataActivityAdapter(List<MetaDB> originalRecords) {
-        this.originalRecords = originalRecords;
+    public TrackRecursiveActivityAdapter(List<MetaDB> originalRecords) {
+        this.records = originalRecords;
     }
 
     @Override
@@ -44,31 +41,30 @@ public class TrackDataActivityAdapter extends RecyclerView.Adapter<TrackDataActi
     }
 
     @Override
-    public TrackDataActivityAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public TrackRecursiveActivityAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.adaptor_item, parent, false);
         view.setOnClickListener(myOnClickListener);
-        return new TrackDataActivityAdapter.ViewHolder(view);
+        return new TrackRecursiveActivityAdapter.ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(TrackDataActivityAdapter.ViewHolder holder, int position) {
-        holder.tv.setText(RecordToString(originalRecords.get(position)));
+    public void onBindViewHolder(TrackRecursiveActivityAdapter.ViewHolder holder, int position) {
+        holder.tv.setText(RecordToString(records.get(position)));
     }
-    // Make a list with all this user´s contracts.
     private String RecordToString(MetaDB record){
-            String result;
-            String sharelist = shareListTotString(record.getShareList());
+        String result;
+        String sharelist = shareListTotString(record.getShareList());
 
-            result=
-                    "URI".concat(record.getUri()).concat("\n")
-                            .concat("User Id").concat(record.getUserId()).concat("\n")
-                            .concat("BackWard Ref Id ").concat(record.getBackRefId()).concat("\n")
-                            .concat("Company Id ").concat(record.getCompanyId()).concat("\n")
-                            .concat("Root ID ").concat(record.getRootId()).concat("\n")
-                            .concat("Creation Time ").concat(record.getCreationTime().toString()).concat("\n")
-                            .concat("Expiration Time ").concat(record.getExpirationTime().toString()).concat("\n")
-                            .concat("Deleted ").concat(record.getDeleted().toString()).concat("\n")
-                            .concat("Deleted").concat(sharelist).concat("\n");
+        result=
+                "URI".concat(record.getUri()).concat("\n")
+                        .concat("User Id").concat(record.getUserId()).concat("\n")
+                        .concat("BackWard Ref Id ").concat(record.getBackRefId()).concat("\n")
+                        .concat("Company Id ").concat(record.getCompanyId()).concat("\n")
+                        .concat("Root ID ").concat(record.getRootId()).concat("\n")
+                        .concat("Creation Time ").concat(record.getCreationTime().toString()).concat("\n")
+                        .concat("Expiration Time ").concat(record.getExpirationTime().toString()).concat("\n")
+                        .concat("Deleted ").concat(record.getDeleted().toString()).concat("\n")
+                        .concat("Deleted").concat(sharelist).concat("\n");
 
         return result;
     }
@@ -87,10 +83,11 @@ public class TrackDataActivityAdapter extends RecyclerView.Adapter<TrackDataActi
         return result;
     }
 
+
     @Override
     public int getItemCount() {
-        if (originalRecords != null)
-            return originalRecords.size();
+        if (records != null)
+            return records.size();
         else
             return 0;
     }

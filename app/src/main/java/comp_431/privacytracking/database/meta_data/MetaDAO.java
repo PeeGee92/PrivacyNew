@@ -12,6 +12,9 @@ public interface MetaDAO {
     @Query("SELECT * FROM metadb")
     public List<MetaDB> getAll();
 
+    @Query("SELECT * FROM metadb WHERE uri = :uri")
+    public MetaDB getFromUri(String uri);
+
     @Query("SELECT * FROM metadb WHERE CompanyID = :RequestedCompany")
     public List<MetaDB> getAllFromCompany(String RequestedCompany);
 
