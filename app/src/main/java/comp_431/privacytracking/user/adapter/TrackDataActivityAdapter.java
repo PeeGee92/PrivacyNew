@@ -53,32 +53,51 @@ public class TrackDataActivityAdapter extends RecyclerView.Adapter<TrackDataActi
     }
     // Make a list with all this user´s contracts.
     private String RecordToString(MetaDB record){
-            String result;
+            String result = "";
             String sharelist = shareListTotString(record.getShareList());
 
-            result=
-                    "URI".concat(record.getUri()).concat("\n")
-                            .concat("User Id").concat(record.getUserId()).concat("\n")
-                            .concat("BackWard Ref Id ").concat(record.getBackRefId()).concat("\n")
-                            .concat("Company Id ").concat(record.getCompanyId()).concat("\n")
-                            .concat("Root ID ").concat(record.getRootId()).concat("\n")
-                            .concat("Creation Time ").concat(record.getCreationTime().toString()).concat("\n")
-                            .concat("Expiration Time ").concat(record.getExpirationTime().toString()).concat("\n")
-                            .concat("Deleted ").concat(record.getDeleted().toString()).concat("\n")
-                            .concat("Deleted").concat(sharelist).concat("\n");
+            result += (record.getUri());
+            result += ("\n");
+            result += ("User Id");
+            result += (record.getUserId());
+            result += ("\n");
+            result += ("BackWard Ref Id ");
+            result += (record.getBackRefId());
+            result += ("\n");
+            result += ("Company Id ");
+            result += (record.getCompanyId());
+            result += ("\n");
+            result += ("Root ID ");
+            result += (record.getRootId());
+            result += ("\n");
+            result += ("Creation Time ");
+            result += (record.getCreationTime().toString());
+            result += ("\n");
+            result += ("Expiration Time ");
+            result += (record.getExpirationTime().toString());
+            result += ("\n");
+            result += ("Deleted ");
+            result += (record.getDeleted().toString());
+            result += ("\n");
+            result += (sharelist);
+            result += ("\n");
 
         return result;
     }
 
     private String shareListTotString(ArrayList<Boolean> shareList){
-        String result ="Share List: \n";
+        String result = "";
         UserEnum index = new UserEnum();
         for(int i=0;i<shareList.size();i++){
             if(shareList.get(i)){
-                result.concat(index.returnFiel(i)).concat( ": True").concat("\n");
+                result += (index.returnFiel(i));
+                result += ( ": True");
+                result += ("\n");
             }
             else{
-                result.concat(index.returnFiel(i)).concat( ": False").concat("\n");
+                result += (index.returnFiel(i));
+                result += ( ": False");
+                result += ("\n");
             }
         }
         return result;

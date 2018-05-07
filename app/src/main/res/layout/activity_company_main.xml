@@ -38,10 +38,10 @@
             android:textAppearance="@android:style/TextAppearance.Large" />
 
         <Button
-            android:id="@+id/btn_request_contracts"
+            android:id="@+id/btn_forward_contracts"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Request Contracts"
+            android:text="Forward Contracts"
             android:layout_margin="20dp"
             android:textAppearance="@android:style/TextAppearance.Large" />
 

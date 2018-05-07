@@ -21,7 +21,7 @@ public class Request1Adapter extends RecyclerView.Adapter<Request1Adapter.ViewHo
     private final View.OnClickListener myOnClickListener = new View.OnClickListener()  {
         public void onClick(View view) {
             int itemPosition = recyclerView.getChildLayoutPosition(view);
-            LoginActivity.dbmanag.CompanyrequestCompany(LoginActivity.currentUser.getUid(),companiesList.get(itemPosition));
+            LoginActivity.dbmanag.CompanyForwardCompany(LoginActivity.currentUser.getUid(),companiesList.get(itemPosition));
         }
     };
     @Override

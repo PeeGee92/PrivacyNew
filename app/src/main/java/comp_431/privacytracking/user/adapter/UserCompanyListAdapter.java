@@ -82,7 +82,7 @@ public class UserCompanyListAdapter extends RecyclerView.Adapter<UserCompanyList
 
     @Override
     public void onBindViewHolder(UserCompanyListAdapter.ViewHolder holder, int position) {
-        holder.tv.setText(companiesList.get(position).getCompanyId());
+        holder.tv.setText(companiesList.get(position).getCompanyName());
     }
 
     @Override

@@ -5,6 +5,30 @@
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:id="@+id/llCompanyName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentTop="true">
+
+        <EditText
+            android:id="@+id/etCompanyName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Enter Company Name"
+            android:layout_weight="2"/>
+
+        <Button
+            android:id="@+id/btnChangeName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_field_margin"
+            android:layout_weight="1"
+            android:text="Change Name" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -34,7 +58,7 @@
         android:layout_width="@dimen/text_field_width"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
+        android:layout_below="@id/llCompanyName"
         android:layout_margin="@dimen/text_field_margin"
         android:text="Email"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
