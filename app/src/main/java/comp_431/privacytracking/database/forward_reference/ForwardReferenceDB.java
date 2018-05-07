@@ -12,6 +12,8 @@ public class ForwardReferenceDB {
         @PrimaryKey
         @NonNull
         private String uri;
+        @NonNull
+        private String newRecordUri;
 
         @ColumnInfo (name = "forward_reference_id") // Company´s ID which was given the record.
         private String forwardReferenceID;
@@ -42,4 +44,11 @@ public class ForwardReferenceDB {
                 this.sourceReferenceId = sourceReferenceId;
         }
 
+        public String getNewRecordUri() {
+                return newRecordUri;
+        }
+
+        public void setNewRecordUri(String newRecordUri) {
+                this.newRecordUri = newRecordUri;
+        }
         }

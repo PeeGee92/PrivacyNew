@@ -17,6 +17,13 @@ public class OriginalContractsAdapter extends RecyclerView.Adapter<OriginalContr
     RecyclerView recyclerView;
 
 
+    @Override
+    public void onAttachedToRecyclerView(RecyclerView recyclerView) {
+        super.onAttachedToRecyclerView(recyclerView);
+
+        this.recyclerView = recyclerView;
+    }
+
     private final View.OnClickListener myOnClickListener = new View.OnClickListener()  {
         public void onClick(View view) {
             int itemPosition = recyclerView.getChildLayoutPosition(view);
@@ -29,7 +36,7 @@ public class OriginalContractsAdapter extends RecyclerView.Adapter<OriginalContr
 
     @Override
     public OriginalContractsAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.contract_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.adaptor_item, parent, false);
         view.setOnClickListener(myOnClickListener);
         return new OriginalContractsAdapter.ViewHolder(view);
     }
@@ -37,8 +44,7 @@ public class OriginalContractsAdapter extends RecyclerView.Adapter<OriginalContr
     @Override
     public void onBindViewHolder(OriginalContractsAdapter.ViewHolder holder, int position) {
         // TODO get names from list
-        holder.tvUserName.setText(originalLists.get(position));
-        holder.tvCompanyName.setText(originalLists.get(position));
+        holder.tv.setText(originalLists.get(position));
     }
 
     @Override
@@ -51,14 +57,13 @@ public class OriginalContractsAdapter extends RecyclerView.Adapter<OriginalContr
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView tvUserName;
-        TextView tvCompanyName;
+        TextView tv;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
-            tvUserName = itemView.findViewById(R.id.tvUserName);
-            tvCompanyName = itemView.findViewById(R.id.tvCompanyName);
+            tv = itemView.findViewById(R.id.tvText);
         }
     }
+
 }

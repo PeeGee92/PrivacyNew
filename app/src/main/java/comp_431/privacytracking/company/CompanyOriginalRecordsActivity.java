@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 import comp_431.privacytracking.LoginActivity;
 import comp_431.privacytracking.R;
@@ -27,6 +28,7 @@ public class CompanyOriginalRecordsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_company_original_records);
+        ButterKnife.bind(this);
         originalContracts.setLayoutManager(new LinearLayoutManager(this));
         adapter = new OriginalContractsAdapter(getContractList());
         originalContracts.setAdapter(adapter);

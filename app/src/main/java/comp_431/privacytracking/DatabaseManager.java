@@ -10,6 +10,7 @@ import java.util.Calendar;
 import java.util.List;
 
 import comp_431.privacytracking.database.AppDatabase;
+import comp_431.privacytracking.database.company.CompanyDB;
 import comp_431.privacytracking.database.forward_reference.ForwardReferenceDB;
 import comp_431.privacytracking.database.meta_data.MetaDB;
 import comp_431.privacytracking.database.user.UserDB;
@@ -128,6 +129,7 @@ public class DatabaseManager {
         //Now we have to create a new FowardReference.
         ForwardReferenceDB newForward = new ForwardReferenceDB();
         newForward.setUri(actualCandidate.getUri());
+        newForward.setNewRecordUri(newRecord.getUri());
         newForward.setForwardReferenceID(CompanyWants);
         newForward.setSourceReferenceId(actualCandidate.getCompanyId());
 
@@ -169,17 +171,21 @@ public class DatabaseManager {
         return LoginActivity.db.metaDAO().OriginalRecordsFromUser(userID);
     }
 
-    public List<String> companiesUserHasNoContractWith(){
+    public List<CompanyDB> companiesUserHasNoContractWith(){
         List<String> allCompaniesIds = LoginActivity.db.CompanyDAO().getAllIds();
         List<MetaDB> userOrigContracts = userOriginalContracts(LoginActivity.currentUser.toString());
         MetaDB actual;
+        List<CompanyDB> allCompanies = new ArrayList<CompanyDB>();
         for(int i=0;i<userOrigContracts.size();i++){
             actual = userOrigContracts.get(i);
             if(allCompaniesIds.contains(actual.getCompanyId())){
                 allCompaniesIds.remove(actual.getCompanyId());
             }
+            else{
+                allCompanies.add(LoginActivity.db.CompanyDAO().getCompanyById(actual.getCompanyId()));
+            }
         }
-        return allCompaniesIds;
+        return allCompanies;
     }
 
     public List<MetaDB> companyOriginalContracts(String companyId){

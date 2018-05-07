@@ -21,13 +21,21 @@ public class UserContractsAdapter extends RecyclerView.Adapter<UserContractsAdap
         }
     };
 
+    @Override
+    public void onAttachedToRecyclerView(RecyclerView recyclerView) {
+        super.onAttachedToRecyclerView(recyclerView);
+
+        this.recyclerView = recyclerView;
+    }
+
+
     public UserContractsAdapter(List<String> contractList){
         this.contractsList=contractList;
     }
 
     @Override
     public UserContractsAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.contract_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.adaptor_item, parent, false);
         view.setOnClickListener(myOnClickListener);
         return new UserContractsAdapter.ViewHolder(view);
     }
@@ -35,8 +43,7 @@ public class UserContractsAdapter extends RecyclerView.Adapter<UserContractsAdap
     @Override
     public void onBindViewHolder(UserContractsAdapter.ViewHolder holder, int position) {
         // TODO get names from list
-        holder.tvUserName.setText(contractsList.get(position));
-        holder.tvCompanyName.setText(contractsList.get(position));
+        holder.tv.setText(contractsList.get(position));
     }
 
     @Override
@@ -49,14 +56,12 @@ public class UserContractsAdapter extends RecyclerView.Adapter<UserContractsAdap
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView tvUserName;
-        TextView tvCompanyName;
+        TextView tv;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
-            tvUserName = itemView.findViewById(R.id.tvUserName);
-            tvCompanyName = itemView.findViewById(R.id.tvCompanyName);
+            tv = itemView.findViewById(R.id.tvText);
         }
     }
 }

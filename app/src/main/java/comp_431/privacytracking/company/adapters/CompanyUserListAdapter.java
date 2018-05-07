@@ -27,20 +27,28 @@ public class CompanyUserListAdapter extends RecyclerView.Adapter<CompanyUserList
         }
     };
 
+    @Override
+    public void onAttachedToRecyclerView(RecyclerView recyclerView) {
+        super.onAttachedToRecyclerView(recyclerView);
+
+        this.recyclerView = recyclerView;
+    }
+
+
     public CompanyUserListAdapter(List<String> userIDs){
         this.userList = userIDs;
     }
 
     @Override
     public CompanyUserListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.user_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.adaptor_item, parent, false);
         view.setOnClickListener(myOnClickListener);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(CompanyUserListAdapter.ViewHolder holder, int position) {
-        holder.tvUserName.setText(userList.get(position));
+        holder.tv.setText(userList.get(position));
     }
 
     @Override
@@ -53,12 +61,13 @@ public class CompanyUserListAdapter extends RecyclerView.Adapter<CompanyUserList
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView tvUserName;
+        TextView tv;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
-        tvUserName = itemView.findViewById(R.id.tvUserId);
+            tv = itemView.findViewById(R.id.tvText);
         }
     }
+
 }

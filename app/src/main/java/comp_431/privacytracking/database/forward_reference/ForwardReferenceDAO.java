@@ -13,9 +13,9 @@ public interface ForwardReferenceDAO {
 
     @Query("SELECT * FROM ForwardReferenceDB")
     public List<ForwardReferenceDB> getAll();
-
-    @Query("SELECT * FROM ForwardReferenceDB WHERE uri = :uri")
-    public ForwardReferenceDB OriginCompany(String uri);
+    
+    @Query("SELECT newRecordUri FROM ForwardReferenceDB WHERE uri = :uri")
+    public List<String> ForwardedRecordsUri(String uri);
 
     @Insert
     public void insert(ForwardReferenceDB forwardDB);
