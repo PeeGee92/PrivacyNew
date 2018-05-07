@@ -26,11 +26,14 @@
         </activity>
         <activity android:name=".user.CompanyListActivity" />
         <activity android:name=".user.UserMainActivity" />
+        <activity android:name=".user.TrackDataActivity"/>
+        <activity android:name=".user.UserDataActivity" />
         <activity android:name=".company.UserContractsActivity" />
         <activity android:name=".company.UserListActivity" />
         <activity android:name=".company.CompanyMainActivity" />
-        <activity android:name=".user.UserDataActivity" />
-        <activity android:name=".user.TrackDataActivity"></activity>
+        <activity android:name=".company.CompanyDataActivity" />
+        <activity android:name=".company.CompanyOriginalRecordsActivity" />
+        <activity android:name=".company.Request1Activity" />
     </application>
 
 </manifest>

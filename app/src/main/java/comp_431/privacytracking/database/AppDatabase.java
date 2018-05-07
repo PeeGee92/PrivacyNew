@@ -14,7 +14,7 @@ import comp_431.privacytracking.database.meta_data.MetaDB;
 import comp_431.privacytracking.database.user.UserDAO;
 import comp_431.privacytracking.database.user.UserDB;
 
-@Database(entities = {UserDB.class, MetaDB.class, CompanyDB.class , ForwardReferenceDB.class}, version = 7)
+@Database(entities = {UserDB.class, MetaDB.class, CompanyDB.class , ForwardReferenceDB.class}, version = 8)
 @TypeConverters({DateTypeConvertors.class,AListBooleansTypeConvertors.class})
 public abstract class AppDatabase extends RoomDatabase{
     public abstract UserDAO userDAO();
