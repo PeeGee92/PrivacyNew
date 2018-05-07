@@ -11,7 +11,6 @@ import java.util.List;
 
 import comp_431.privacytracking.R;
 import comp_431.privacytracking.company.UserContractsActivity;
-import comp_431.privacytracking.company.UserListActivity;
 
 public class CompanyUserListAdapter extends RecyclerView.Adapter<CompanyUserListAdapter.ViewHolder> {
 
@@ -41,7 +40,7 @@ public class CompanyUserListAdapter extends RecyclerView.Adapter<CompanyUserList
 
     @Override
     public CompanyUserListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.adaptor_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_item, parent, false);
         view.setOnClickListener(myOnClickListener);
         return new ViewHolder(view);
     }

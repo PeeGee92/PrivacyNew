@@ -24,11 +24,11 @@ public interface MetaDAO {
     @Query("SELECT userId FROM metadb WHERE CompanyID = :Company")
     public List<String> ListAllUsers(String Company);
 
-    @Query("SELECT * FROM metadb WHERE backward_reference = '' AND UserId = :UserId ")
-    public List<MetaDB> OriginalRecordsFromUser(String UserId);
+    @Query("SELECT * FROM metadb WHERE backward_reference = :source AND UserId = :UserId ")
+    public List<MetaDB> OriginalRecordsFromUser(String UserId, String source);
 
-    @Query("SELECT * FROM metadb WHERE backward_reference = '' AND CompanyId = :CompanyId ")
-    public List<MetaDB> OriginalRecordsFromCompany(String CompanyId);
+    @Query("SELECT * FROM metadb WHERE backward_reference = :source AND CompanyId = :CompanyId ")
+    public List<MetaDB> OriginalRecordsFromCompany(String CompanyId, String source);
 
     @Query("SELECT * FROM metadb WHERE CompanyId = :CompanyId AND UserId = :UserId ")
     public List<MetaDB> UserContractsInCompany(String UserId, String CompanyId);

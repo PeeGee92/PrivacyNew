@@ -55,12 +55,11 @@ public class DatabaseManager {
         // Now we add the expiration date  +constant months.
         cal.add(Calendar.MONTH, LoginActivity.db.expirationmonths);
         Timestamp expiration = new Timestamp(cal.getTime().getTime());
-        MetaDB newRecord = new MetaDB();
+        MetaDB newRecord = new MetaDB(createUri(userID, companyID, creation));
 
-        newRecord.setCreationTime(creation.getTime()); //TODO: TimeStamp ->Date
+        newRecord.setCreationTime(creation.getTime());
         newRecord.setExpirationTime(expiration.getTime());
-        newRecord.setBackRefId(""); // Origin of this record.
-        newRecord.setUri(createUri(userID, companyID, creation));
+        newRecord.setBackRefId("Origin"); // Origin of this record.
         newRecord.setRootId(newRecord.getUri());
         newRecord.setCompanyId(companyID);
         newRecord.setUserId(userID);
@@ -110,7 +109,7 @@ public class DatabaseManager {
         // Now we add the expiration date  +constant months.
         cal.add(Calendar.MONTH, LoginActivity.db.expirationmonths);
         Timestamp expiration = new Timestamp(cal.getTime().getTime());
-        MetaDB newRecord = new MetaDB();
+        MetaDB newRecord = new MetaDB(createUri(actualCandidate.getUserId(),CompanyWants, creation));
 
 
         newRecord.setCreationTime(creation.getTime());
@@ -119,7 +118,6 @@ public class DatabaseManager {
         newRecord.setRootId(actualCandidate.getRootId()); //First Record Created.
         newRecord.setCompanyId(CompanyWants);
         newRecord.setUserId(actualCandidate.getUserId());
-        newRecord.setUri(createUri(actualCandidate.getUserId(),CompanyWants, creation));
         newRecord.setShareList(actualCandidate.getCopyOfShareList());
         newRecord.setDeleted(false);
 
@@ -159,21 +157,24 @@ public class DatabaseManager {
     }
 
     private String createUri(String userID,String companyID, Timestamp creation){
-        String uri = new String();
-        uri.concat(userID);
-        uri.concat(companyID);
-        uri.concat(creation.toString());
+        String uri = "";
+        uri += userID;
+        uri += companyID;
+        uri += creation.toString();
 
         return uri;
     }
 
     public List<MetaDB> userOriginalContracts(String userID){
-        return LoginActivity.db.metaDAO().OriginalRecordsFromUser(userID);
+
+        List<MetaDB> test = LoginActivity.db.metaDAO().OriginalRecordsFromUser(userID, "Origin");
+
+        return test;
     }
 
     public List<CompanyDB> companiesUserHasNoContractWith(){
         List<String> allCompaniesIds = LoginActivity.db.CompanyDAO().getAllIds();
-        List<MetaDB> userOrigContracts = userOriginalContracts(LoginActivity.currentUser.toString());
+        List<MetaDB> userOrigContracts = userOriginalContracts(LoginActivity.currentUser.getUid());
         MetaDB actual;
         List<CompanyDB> allCompanies = new ArrayList<CompanyDB>();
         for(int i=0;i<userOrigContracts.size();i++){
@@ -190,6 +191,9 @@ public class DatabaseManager {
     }
 
     public List<MetaDB> companyOriginalContracts(String companyId){
-        return LoginActivity.db.metaDAO().OriginalRecordsFromCompany(companyId);
+
+        List<MetaDB> test = LoginActivity.db.metaDAO().OriginalRecordsFromCompany(companyId, "Origin");
+
+        return test;
     }
 }
