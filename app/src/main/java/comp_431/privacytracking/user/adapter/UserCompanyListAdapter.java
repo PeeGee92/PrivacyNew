@@ -1,18 +1,17 @@
 package comp_431.privacytracking.user.adapter;
 
+import android.app.AlertDialog;
 import android.content.Context;
-import android.content.Intent;
+import android.content.DialogInterface;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import java.util.List;
-
+import comp_431.privacytracking.LoginActivity;
 import comp_431.privacytracking.R;
 import comp_431.privacytracking.database.company.CompanyDB;
-import comp_431.privacytracking.user.UserCreateContractActivity;
 
 public class UserCompanyListAdapter extends RecyclerView.Adapter<UserCompanyListAdapter.ViewHolder> {
 
@@ -34,12 +33,40 @@ public class UserCompanyListAdapter extends RecyclerView.Adapter<UserCompanyList
         @Override
         public void onClick(View view) {
             int itemPosition = recyclerView.getChildLayoutPosition(view);
-            CompanyDB temp = companiesList.get(itemPosition);
+            final CompanyDB temp = companiesList.get(itemPosition);
 
-            Intent intent = new Intent(view.getContext(), UserCreateContractActivity.class)
-                    .putExtra("COMPANY_ID", temp.getCompanyId());
+            AlertDialog dialog = null;
 
-            view.getContext().startActivity(intent);
+            final AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+
+            final Context context = builder.getContext();
+            final LayoutInflater inflater = LayoutInflater.from(context);
+            final View dialogView = inflater.inflate(R.layout.user_add_contract_dialog, null, false);
+
+            builder.setView(dialogView);
+            builder.setTitle("Create Contract");
+            final AlertDialog finalDialog = dialog;
+            builder.setPositiveButton("Create", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    LoginActivity.dbmanag.UserJoinsCompany(LoginActivity.currentUser.getUid(), temp.getCompanyId());
+
+                    finalDialog.dismiss();
+
+                    //TODO fix adapter
+//                    adapterItemsList.add(todoDB);
+//                    adapter = new TodoAdapter(adapterItemsList);
+//                    rvTasks.setAdapter(adapter);
+                }
+            }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    finalDialog.dismiss();
+                }
+            });
+
+            dialog = builder.create();
+            dialog.show();
         }
     };
 
