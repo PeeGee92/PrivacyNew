@@ -42,7 +42,7 @@ public class TrackRecursiveActivityAdapter extends RecyclerView.Adapter<TrackRec
 
     @Override
     public TrackRecursiveActivityAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.adaptor_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_item, parent, false);
         view.setOnClickListener(myOnClickListener);
         return new TrackRecursiveActivityAdapter.ViewHolder(view);
     }

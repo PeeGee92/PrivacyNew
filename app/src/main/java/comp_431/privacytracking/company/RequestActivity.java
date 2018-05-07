@@ -33,7 +33,7 @@ public class RequestActivity extends AppCompatActivity {
         companiesList.setAdapter(adapter);
     }
     private List<String> getAllCompanyList(){
-        return LoginActivity.db.CompanyDAO().getAllExceptMe(LoginActivity.currentUser.toString());
+        return LoginActivity.db.CompanyDAO().getAllExceptMe(LoginActivity.currentUser.getUid());
     }
     @OnClick({R.id.userList})
     public void onViewClicked(View view){

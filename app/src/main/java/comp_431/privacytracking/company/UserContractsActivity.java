@@ -39,7 +39,7 @@ public class UserContractsActivity extends AppCompatActivity {
 
     // Make a list with all this user´s contracts.
     private List<String> getUserContractList(){
-        List<MetaDB> contracts = LoginActivity.db.metaDAO().UserContractsInCompany(LoginActivity.currentUser.toString(),getIntent().getStringExtra("Id"));
+        List<MetaDB> contracts = LoginActivity.db.metaDAO().UserContractsInCompany(LoginActivity.currentUser.getUid(),getIntent().getStringExtra("Id"));
         List<String> contractsList = new ArrayList<String>();
         MetaDB actual;
         for(int i =0;i<contracts.size();i++) {

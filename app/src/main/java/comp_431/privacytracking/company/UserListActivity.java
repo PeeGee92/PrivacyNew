@@ -35,7 +35,7 @@ public class UserListActivity extends AppCompatActivity {
     }
 
     private List<String> getUserList() {
-        return LoginActivity.dbmanag.getListOfUsersIDsOutOfAllContracts(LoginActivity.currentUser.toString());
+        return LoginActivity.dbmanag.getListOfUsersIDsOutOfAllContracts(LoginActivity.currentUser.getUid());
     }
 
     @OnClick({R.id.userList})

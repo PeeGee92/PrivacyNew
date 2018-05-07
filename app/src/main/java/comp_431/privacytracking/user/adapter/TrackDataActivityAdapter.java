@@ -11,10 +11,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import comp_431.privacytracking.LoginActivity;
 import comp_431.privacytracking.R;
-import comp_431.privacytracking.company.UserContractsActivity;
-import comp_431.privacytracking.database.company.CompanyDB;
 import comp_431.privacytracking.database.meta_data.MetaDB;
 import comp_431.privacytracking.user.TrackRecursiveActivity;
 import comp_431.privacytracking.user.UserEnum;
@@ -45,7 +42,7 @@ public class TrackDataActivityAdapter extends RecyclerView.Adapter<TrackDataActi
 
     @Override
     public TrackDataActivityAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.adaptor_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_item, parent, false);
         view.setOnClickListener(myOnClickListener);
         return new TrackDataActivityAdapter.ViewHolder(view);
     }

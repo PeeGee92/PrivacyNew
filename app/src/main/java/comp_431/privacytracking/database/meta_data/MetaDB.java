@@ -13,9 +13,13 @@ import comp_431.privacytracking.database.user.UserDB;
 @Entity
 public class MetaDB {
 
+    public MetaDB(@NonNull String uri) {
+        this.uri = uri;
+    }
+
     @PrimaryKey
     @NonNull
-    private String uri; //TODO generate method for uri
+    private String uri;
 
     @ColumnInfo ( name = "CompanyId")
     private String CompanyId;
@@ -40,9 +44,6 @@ public class MetaDB {
 
     @ColumnInfo (name = "deleted")
     public Boolean deleted;
-
-
-
 
 
     public String getUri() {

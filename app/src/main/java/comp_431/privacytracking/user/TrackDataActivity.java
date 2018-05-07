@@ -33,6 +33,6 @@ public class TrackDataActivity extends AppCompatActivity {
         rvOriginalRecordsTrack.setAdapter(adapter);
     }
     private List<MetaDB> getOriginalRecords(){
-        return LoginActivity.dbmanag.userOriginalContracts(LoginActivity.currentUser.toString());
+        return LoginActivity.dbmanag.userOriginalContracts(LoginActivity.currentUser.getUid());
     }
 }
