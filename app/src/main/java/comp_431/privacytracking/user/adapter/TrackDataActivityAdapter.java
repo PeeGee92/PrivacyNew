@@ -17,16 +17,15 @@
 //
 //public class TrackDataActivityAdapter extends RecyclerView.Adapter<TrackDataActivityAdapter.ViewHolder> {
 //
-//    List<CompanyDB> originalRecords;
 //    RecyclerView recyclerView;
 //    List<MetaDB> originalRecords;
 //
 //    private final View.OnClickListener myOnClickListener = new View.OnClickListener()  {
 //        public void onClick(View view) {
 //            int itemPosition = recyclerView.getChildLayoutPosition(view);
-//            String id = originalRecords.get(itemPosition);
+//            MetaDB id = originalRecords.get(itemPosition);
 //            //TODO: Create a new class for showing all the contrats with one user.
-//            view.getContext().startActivity(new Intent(view.getContext(), UserContractsActivity.class).putExtra("Id",id));
+//            view.getContext().startActivity(new Intent(view.getContext(), UserContractsActivity.class).putExtra("Record",id.getUri()));
 //        }
 //    };
 //
