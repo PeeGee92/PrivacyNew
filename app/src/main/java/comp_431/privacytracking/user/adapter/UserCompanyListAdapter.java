@@ -17,6 +17,7 @@ public class UserCompanyListAdapter extends RecyclerView.Adapter<UserCompanyList
 
     List<CompanyDB> companiesList;
     RecyclerView recyclerView;
+    RecyclerView.Adapter adapter;
 
     public UserCompanyListAdapter(List<CompanyDB> companiesList) {
         this.companiesList = companiesList;
@@ -53,10 +54,9 @@ public class UserCompanyListAdapter extends RecyclerView.Adapter<UserCompanyList
 
                     finalDialog.dismiss();
 
-                    //TODO fix adapter
-//                    adapterItemsList.add(todoDB);
-//                    adapter = new TodoAdapter(adapterItemsList);
-//                    rvTasks.setAdapter(adapter);
+                    companiesList.remove(temp);
+                    adapter = new UserCompanyListAdapter(companiesList);
+                    recyclerView.setAdapter(adapter);
                 }
             }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                 @Override
@@ -74,6 +74,7 @@ public class UserCompanyListAdapter extends RecyclerView.Adapter<UserCompanyList
     public UserCompanyListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.company_item, parent, false);
         view.setOnClickListener(myOnClickListener);
+        adapter = this;
         return new ViewHolder(view);
     }
 
