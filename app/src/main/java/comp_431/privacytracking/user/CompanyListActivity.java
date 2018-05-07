@@ -21,8 +21,6 @@ public class CompanyListActivity extends AppCompatActivity {
     RecyclerView.Adapter adapter;
     @BindView(R.id.rvCompanies)
     RecyclerView rvCompanies;
-    @BindView(R.id.fab)
-    FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,10 +37,5 @@ public class CompanyListActivity extends AppCompatActivity {
     // TODO
     private List<CompanyDB> getCompaniesList() {
        return LoginActivity.dbmanag.companiesUserHasNoContractWith();
-    }
-
-    @OnClick(R.id.fab)
-    public void onViewClicked() {
-        // TODO Add contract activity
     }
 }
