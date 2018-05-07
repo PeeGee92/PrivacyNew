@@ -22,4 +22,25 @@ public class UserEnum {
                 return -1;
         }
     }
+
+    public String returnFiel(int value) {
+        switch (value) {
+            case 0:
+                return "userEmail";
+            case 1:
+                return "userFirstName";
+            case 2:
+                return "userLastName";
+            case 3:
+                return "userAddress";
+            case 4:
+                return "userCountry";
+            case 5:
+                return "userCity";
+            case 6:
+                return "userZip";
+            default:
+                return null;
+        }
+    }
 }

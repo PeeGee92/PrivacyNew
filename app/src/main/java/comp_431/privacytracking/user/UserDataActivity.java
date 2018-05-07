@@ -9,6 +9,8 @@ import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -61,19 +63,21 @@ public class UserDataActivity extends AppCompatActivity {
 
         // Get user data
         userDB = LoginActivity.db.userDAO().getUserById(LoginActivity.currentUser.getUid());
-
         setDataToFields();
     }
 
     private void setDataToFields() {
 
-        etAddress.setText(userDB.getUserEmail());
+        etAddress.setText(userDB.getUserAddress());
         etCity.setText(userDB.getUserCity());
         etCountry.setText(userDB.getUserCountry());
         etZipCode.setText(userDB.getUserZip());
         etFirstName.setText(userDB.getUserFirstName());
         etLastName.setText(userDB.getUserLastName());
         tvEmail.setText(userDB.getUserEmail());
+
+        // DEBUG
+        ArrayList<Boolean> test = userDB.getUserShareList();
 
         swEmail.setChecked(userDB.getUserShareList().get(new UserEnum().returnValue("userEmail")));
         swFirstName.setChecked(userDB.getUserShareList().get(new UserEnum().returnValue("userFirstName")));
