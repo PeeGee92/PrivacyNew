@@ -30,7 +30,7 @@ public class UserContractsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_contracts);
         userContracts.setLayoutManager(new LinearLayoutManager(this));
-        //adapter = new UserContractsAdapter(getUserContractList());
+        adapter = new UserContractsAdapter(getUserContractList());
         userContracts.setAdapter(adapter);
     }
 

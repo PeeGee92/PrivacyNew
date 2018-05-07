@@ -63,7 +63,6 @@ public class UserDataActivity extends AppCompatActivity {
 
         // Get user data
         userDB = LoginActivity.db.userDAO().getUserById(LoginActivity.currentUser.getUid());
-
         setDataToFields();
     }
 
