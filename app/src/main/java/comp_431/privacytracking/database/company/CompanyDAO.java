@@ -22,7 +22,7 @@ public interface CompanyDAO {
     @Query("SELECT companyId FROM companydb WHERE company_name = :companyName")
     public String getCompanyIdByName(String companyName);
 
-    @Query("SELECT companyId FROM companydb WHERE company_name != :companyName")
+    @Query("SELECT companyId FROM companydb WHERE company_name <> :companyName")
     public List<String> getAllExceptMe(String companyName);
 
     @Update

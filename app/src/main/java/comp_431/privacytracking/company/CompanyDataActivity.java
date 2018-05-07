@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -15,45 +14,43 @@ import butterknife.OnClick;
 import comp_431.privacytracking.LoginActivity;
 import comp_431.privacytracking.R;
 import comp_431.privacytracking.database.company.CompanyDB;
-import comp_431.privacytracking.database.user.UserDB;
 import comp_431.privacytracking.user.UserEnum;
 
 public class CompanyDataActivity extends AppCompatActivity {
 
+    CompanyDB companyDB;
     @BindView(R.id.btnSave)
     Button btnSave;
     @BindView(R.id.btnCancel)
     Button btnCancel;
-    @BindView(R.id.etFirstName)
-    EditText etFirstName;
-    @BindView(R.id.etLastName)
-    EditText etLastName;
-    @BindView(R.id.etAddress)
-    EditText etAddress;
-    @BindView(R.id.etCountry)
-    EditText etCountry;
-    @BindView(R.id.etCity)
-    EditText etCity;
-    @BindView(R.id.etZipCode)
-    EditText etZipCode;
     @BindView(R.id.tvEmail)
     TextView tvEmail;
+    @BindView(R.id.etFirstName)
+    TextView etFirstName;
+    @BindView(R.id.etLastName)
+    TextView etLastName;
+    @BindView(R.id.etAddress)
+    TextView etAddress;
+    @BindView(R.id.etCountry)
+    TextView etCountry;
+    @BindView(R.id.etCity)
+    TextView etCity;
+    @BindView(R.id.etZipCode)
+    TextView etZipCode;
+    @BindView(R.id.swEmail)
+    Switch swEmail;
     @BindView(R.id.swFirstName)
     Switch swFirstName;
     @BindView(R.id.swLastName)
     Switch swLastName;
-    @BindView(R.id.swEmail)
-    Switch swEmail;
-    @BindView(R.id.swZipCode)
-    Switch swZipCode;
     @BindView(R.id.swAddress)
     Switch swAddress;
-    @BindView(R.id.swCity)
-    Switch swCity;
     @BindView(R.id.swCountry)
     Switch swCountry;
-
-    CompanyDB companyDB;
+    @BindView(R.id.swCity)
+    Switch swCity;
+    @BindView(R.id.swZipCode)
+    Switch swZipCode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,7 +89,6 @@ public class CompanyDataActivity extends AppCompatActivity {
     }
 
     private void updateCompanyRequestedData() {
-
 
         companyDB.getCompanyRequiredFields().set(new UserEnum().returnValue("userEmail"), swEmail.isChecked());
         companyDB.getCompanyRequiredFields().set(new UserEnum().returnValue("userFirstName"), swFirstName.isChecked());
