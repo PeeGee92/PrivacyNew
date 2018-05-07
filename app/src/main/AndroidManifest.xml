@@ -29,8 +29,7 @@
         <activity android:name=".company.UserContractsActivity" />
         <activity android:name=".company.UserListActivity" />
         <activity android:name=".company.CompanyMainActivity" />
-        <activity android:name=".user.UserDataActivity" />
-        <activity android:name=".user.UserCreateContractActivity"></activity>
+        <activity android:name=".user.UserDataActivity"/>
     </application>
 
 </manifest>

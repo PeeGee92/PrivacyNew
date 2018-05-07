@@ -1,5 +1,7 @@
 package comp_431.privacytracking.company.adapters;
 
+
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,47 +10,49 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import comp_431.privacytracking.LoginActivity;
 import comp_431.privacytracking.R;
+import comp_431.privacytracking.company.UserContractsActivity;
 
-public class UserContractsAdapter extends RecyclerView.Adapter<UserContractsAdapter.ViewHolder> {
+public class Request1Adapter extends RecyclerView.Adapter<Request1Adapter.ViewHolder> {
 
-    List<String> contractsList;
+
+    List<String> companiesList;
     RecyclerView recyclerView;
 
     private final View.OnClickListener myOnClickListener = new View.OnClickListener()  {
         public void onClick(View view) {
             int itemPosition = recyclerView.getChildLayoutPosition(view);
+            LoginActivity.dbmanag.CompanyrequestCompany(LoginActivity.currentUser.toString(),companiesList.get(itemPosition));
         }
     };
 
-    public UserContractsAdapter(List<String> contractList){
-        this.contractsList=contractList;
+    public Request1Adapter(List<String> companies){
+        this.companiesList = companies;
     }
-
     @Override
-    public UserContractsAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public Request1Adapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.contract_item, parent, false);
         view.setOnClickListener(myOnClickListener);
-        return new UserContractsAdapter.ViewHolder(view);
+        return new Request1Adapter.ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(UserContractsAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(Request1Adapter.ViewHolder holder, int position) {
         // TODO get names from list
-        holder.tvUserName.setText(contractsList.get(position));
-        holder.tvCompanyName.setText(contractsList.get(position));
+        holder.tvUserName.setText(companiesList.get(position));
+        holder.tvCompanyName.setText(companiesList.get(position));
     }
 
     @Override
     public int getItemCount() {
-        if (contractsList != null)
-            return contractsList.size();
+        if (companiesList != null)
+            return companiesList.size();
         else
             return 0;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-
         TextView tvUserName;
         TextView tvCompanyName;
 

@@ -167,4 +167,8 @@ public class DatabaseManager {
     public List<MetaDB> userOriginalContracts(String userID){
         return LoginActivity.db.metaDAO().OriginalRecordsFromUser(userID);
     }
+
+    public List<MetaDB> companyOriginalContracts(String companyId){
+        return LoginActivity.db.metaDAO().OriginalRecordsFromCompany(companyId);
+    }
 }

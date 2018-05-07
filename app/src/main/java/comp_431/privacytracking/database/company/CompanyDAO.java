@@ -17,7 +17,10 @@ public interface CompanyDAO {
     public CompanyDB getCompanyById(String companyId);
 
     @Query("SELECT companyId FROM companydb WHERE company_name = :companyName")
-    public int getCompanyIdByName(String companyName);
+    public String getCompanyIdByName(String companyName);
+
+    @Query("SELECT companyId FROM companydb WHERE company_name != :companyName")
+    public List<String> getAllExceptMe(String companyName);
 
     @Update
     public void update(CompanyDB CompanyDB);

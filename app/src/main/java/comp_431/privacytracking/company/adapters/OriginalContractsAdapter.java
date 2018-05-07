@@ -10,10 +10,12 @@ import java.util.List;
 
 import comp_431.privacytracking.R;
 
-public class UserContractsAdapter extends RecyclerView.Adapter<UserContractsAdapter.ViewHolder> {
+public class OriginalContractsAdapter extends RecyclerView.Adapter<OriginalContractsAdapter.ViewHolder>{
 
-    List<String> contractsList;
+
+    List<String> originalLists;
     RecyclerView recyclerView;
+
 
     private final View.OnClickListener myOnClickListener = new View.OnClickListener()  {
         public void onClick(View view) {
@@ -21,28 +23,28 @@ public class UserContractsAdapter extends RecyclerView.Adapter<UserContractsAdap
         }
     };
 
-    public UserContractsAdapter(List<String> contractList){
-        this.contractsList=contractList;
+    public OriginalContractsAdapter(List<String> originalLists){
+        this.originalLists=originalLists;
     }
 
     @Override
-    public UserContractsAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public OriginalContractsAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.contract_item, parent, false);
         view.setOnClickListener(myOnClickListener);
-        return new UserContractsAdapter.ViewHolder(view);
+        return new OriginalContractsAdapter.ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(UserContractsAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(OriginalContractsAdapter.ViewHolder holder, int position) {
         // TODO get names from list
-        holder.tvUserName.setText(contractsList.get(position));
-        holder.tvCompanyName.setText(contractsList.get(position));
+        holder.tvUserName.setText(originalLists.get(position));
+        holder.tvCompanyName.setText(originalLists.get(position));
     }
 
     @Override
     public int getItemCount() {
-        if (contractsList != null)
-            return contractsList.size();
+        if (originalLists != null)
+            return originalLists.size();
         else
             return 0;
     }

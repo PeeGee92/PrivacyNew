@@ -19,6 +19,8 @@ public class CompanyMainActivity extends AppCompatActivity {
     Button btnCompanyData;
     @BindView(R.id.btn_original_records)
     Button btnOriginalRecords;
+    @BindView(R.id.btn_request_contracts)
+    Button btnRequestContracts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +36,13 @@ public class CompanyMainActivity extends AppCompatActivity {
                 startActivity(new Intent(this, UserListActivity.class));
                 break;
             case R.id.btn_company_data:
+                //startActivity(new Intent(this, CompanyDataActivity.class));
                 break;
             case R.id.btn_original_records:
+                startActivity(new Intent(this, CompanyOriginalRecordsActivity.class));
+                break;
+            case R.id.btn_request_contracts:
+                startActivity(new Intent(this, Request1Activity.class));
                 break;
         }
     }
