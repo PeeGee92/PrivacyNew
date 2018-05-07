@@ -175,7 +175,7 @@ public class DatabaseManager {
         List<String> allCompaniesIds = LoginActivity.db.CompanyDAO().getAllIds();
         List<MetaDB> userOrigContracts = userOriginalContracts(LoginActivity.currentUser.toString());
         MetaDB actual;
-        List<CompanyDB> allCompanies = new ArrayList<CompanyDB>();
+        List<CompanyDB> allCompanies = new ArrayList<>();
         for(int i=0;i<userOrigContracts.size();i++){
             actual = userOrigContracts.get(i);
             if(allCompaniesIds.contains(actual.getCompanyId())){
