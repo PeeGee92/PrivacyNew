@@ -27,6 +27,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import comp_431.privacytracking.company.CompanyMainActivity;
 import comp_431.privacytracking.database.AppDatabase;
+import comp_431.privacytracking.database.company.CompanyDB;
 import comp_431.privacytracking.database.user.UserDB;
 import comp_431.privacytracking.user.UserMainActivity;
 
@@ -68,18 +69,6 @@ public class LoginActivity extends AppCompatActivity {
 
         rbIndividual.setChecked(true);
         dbmanag =  new DatabaseManager();
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-        if (currentUser != null)
-            loadUserInterface();
-    }
-
-    private void loadUserInterface() {
-
     }
 
     @OnClick({R.id.btn_sign_in, R.id.btn_register})
@@ -133,7 +122,6 @@ public class LoginActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             currentUser = mAuth.getCurrentUser();
                             userWithDB(false);
-                            loadUserInterface();
                         } else {
                             // If sign in fails, display a message to the user.
                             Toast.makeText(LoginActivity.this, "Sign-in failed! Please try again",
@@ -153,7 +141,6 @@ public class LoginActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             currentUser = mAuth.getCurrentUser();
                             userWithDB(true);
-                            loadUserInterface();
                         } else {
                             Toast.makeText(LoginActivity.this, "Registration failed! Please try again",
                                     Toast.LENGTH_SHORT).show();
@@ -164,12 +151,15 @@ public class LoginActivity extends AppCompatActivity {
 
     private void userWithDB(boolean newUser) {
         boolean company;
+        company = rbCompany.isChecked();
 
         if (newUser) {
-            company = rbCompany.isChecked();
-            db.userDAO().insert(new UserDB(currentUser.getUid(), currentUser.getEmail(), company));
-        } else {
-            company = db.userDAO().getUserById(currentUser.getUid()).isCompanyUser();
+            if (company) {
+                db.CompanyDAO().insert(new CompanyDB(currentUser.getUid()));
+            }
+            else {
+                db.userDAO().insert(new UserDB(currentUser.getUid(), currentUser.getEmail()));
+            }
         }
 
         if (company) {
