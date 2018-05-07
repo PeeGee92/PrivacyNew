@@ -12,8 +12,6 @@ public class ForwardReferenceDB {
         @PrimaryKey
         @NonNull
         private String uri;
-
-        @PrimaryKey
         @NonNull
         private String newRecordUri;
 
