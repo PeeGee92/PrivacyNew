@@ -181,9 +181,10 @@ public class DatabaseManager {
             if(allCompaniesIds.contains(actual.getCompanyId())){
                 allCompaniesIds.remove(actual.getCompanyId());
             }
-            else{
-                allCompanies.add(LoginActivity.db.CompanyDAO().getCompanyById(actual.getCompanyId()));
-            }
+        }
+        for(int j=0;j<allCompaniesIds.size();j++){
+            allCompanies.add(LoginActivity.db.CompanyDAO().getCompanyById(allCompaniesIds.get(j)));
+
         }
         return allCompanies;
     }
