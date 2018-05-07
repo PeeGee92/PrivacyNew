@@ -11,10 +11,10 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:largeHeap="true">
+        android:theme="@style/AppTheme">
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login">
@@ -29,7 +29,8 @@
         <activity android:name=".company.UserContractsActivity" />
         <activity android:name=".company.UserListActivity" />
         <activity android:name=".company.CompanyMainActivity" />
-        <activity android:name=".user.UserDataActivity"/>
+        <activity android:name=".user.UserDataActivity" />
+        <activity android:name=".user.UserCreateContractActivity"></activity>
     </application>
 
 </manifest>
