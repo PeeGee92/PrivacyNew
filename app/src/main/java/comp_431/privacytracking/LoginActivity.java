@@ -119,16 +119,42 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
+                            boolean coorectType = checkUserType();
+
+                            if (!coorectType) {
+                                Toast.makeText(LoginActivity.this, "Wrong user type selected",
+                                        Toast.LENGTH_SHORT).show();
+                                return;
+                            }
+
                             currentUser = mAuth.getCurrentUser();
                             userWithDB(false);
                         } else {
-                            // If sign in fails, display a message to the user.
                             Toast.makeText(LoginActivity.this, "Sign-in failed! Please try again",
                                     Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
+    }
+
+    private boolean checkUserType() {
+        FirebaseUser tempUser = mAuth.getCurrentUser();
+
+        if (rbCompany.isChecked()) {
+            CompanyDB tempCompanyDB = db.CompanyDAO().getCompanyById(tempUser.getUid());
+            if (tempCompanyDB == null)
+                return false;
+            else
+                return true;
+        }
+        else {
+            UserDB tempUserDB = db.userDAO().getUserById(tempUser.getUid());
+            if (tempUserDB == null)
+                return false;
+            else
+                return true;
+        }
+
     }
 
     private void registerUser() {
@@ -138,7 +164,14 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
+                            boolean coorectType = checkUserType();
+
+                            if (!coorectType) {
+                                Toast.makeText(LoginActivity.this, "Registration failed! Please try again",
+                                        Toast.LENGTH_SHORT).show();
+                                return;
+                            }
+
                             currentUser = mAuth.getCurrentUser();
                             userWithDB(true);
                         } else {
