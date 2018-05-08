@@ -41,34 +41,11 @@ public class CompanyOriginalRecordsActivity extends AppCompatActivity {
         for(int i =0;i<contracts.size();i++) {
             actual= contracts.get(i);
             if (actual.getDeleted()) {continue;}
-            String sharelist = shareListTotString(actual.getShareList());
-            contractsList.add(
-                    "URI".concat(actual.getUri()).concat("\n")
-                            .concat("User Id").concat(actual.getUserId()).concat("\n")
-                            .concat("BackWard Ref Id ").concat(actual.getBackRefId()).concat("\n")
-                            .concat("Company Id ").concat(actual.getCompanyId()).concat("\n")
-                            .concat("Root ID ").concat(actual.getRootId()).concat("\n")
-                            .concat("Creation Time ").concat(actual.getCreationTime().toString()).concat("\n")
-                            .concat("Expiration Time ").concat(actual.getExpirationTime().toString()).concat("\n")
-                            .concat("Deleted ").concat(actual.getDeleted().toString()).concat("\n")
-                            .concat("Deleted").concat(sharelist).concat("\n"));
+                contractsList.add(RecordToString(actual));
         }
         return contractsList;
     }
 
-    private String shareListTotString(ArrayList<Boolean> shareList){
-        String result ="Share List: \n";
-        UserEnum index = new UserEnum();
-        for(int i=0;i<shareList.size();i++){
-            if(shareList.get(i)){
-                result.concat(index.returnFiel(i)).concat( ": True").concat("\n");
-            }
-            else{
-                result.concat(index.returnFiel(i)).concat( ": False").concat("\n");
-            }
-        }
-        return result;
-    }
 
     // Make a list with all this user´s contracts.
     private String RecordToString(MetaDB record){
