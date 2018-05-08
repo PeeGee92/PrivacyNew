@@ -1,10 +1,12 @@
 package comp_431.privacytracking.company;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -51,6 +53,10 @@ public class CompanyDataActivity extends AppCompatActivity {
     Switch swCity;
     @BindView(R.id.swZipCode)
     Switch swZipCode;
+    @BindView(R.id.etCompanyName)
+    EditText etCompanyName;
+    @BindView(R.id.btnChangeName)
+    Button btnChangeName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +92,8 @@ public class CompanyDataActivity extends AppCompatActivity {
         swCity.setChecked(companyDB.getCompanyRequiredFields().get(new UserEnum().returnValue("userCity")));
         swZipCode.setChecked(companyDB.getCompanyRequiredFields().get(new UserEnum().returnValue("userZip")));
 
+        etCompanyName.setText(companyDB.getCompanyName());
+
     }
 
     private void updateCompanyRequestedData() {
@@ -102,5 +110,16 @@ public class CompanyDataActivity extends AppCompatActivity {
 
         startActivity(new Intent(this, CompanyMainActivity.class));
 
+    }
+
+    @OnClick(R.id.btnChangeName)
+    public void onViewClicked() {
+        if (etCompanyName.getText().toString().trim().isEmpty()) {
+            etCompanyName.setHint("Please enter your company name");
+            etCompanyName.setHintTextColor(Color.RED);
+            return;
+        }
+
+        companyDB.setCompanyName(etCompanyName.getText().toString().trim());
     }
 }

@@ -1,7 +1,7 @@
 package comp_431.privacytracking.user;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -19,8 +19,9 @@ public class TrackRecursiveActivity extends AppCompatActivity {
 
 
     RecyclerView.Adapter adapter;
-    @BindView(R.id.rvOriginalRecordsTrack)
-    RecyclerView rvOriginalRecordsTrack;
+    @BindView(R.id.rw)
+    RecyclerView rw;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,15 +29,16 @@ public class TrackRecursiveActivity extends AppCompatActivity {
         setContentView(R.layout.activity_track_recursive);
         ButterKnife.bind(this);
 
-        rvOriginalRecordsTrack.setLayoutManager(new LinearLayoutManager(this));
+        rw.setLayoutManager(new LinearLayoutManager(this));
         adapter = new TrackRecursiveActivityAdapter(getRecords());
-        rvOriginalRecordsTrack.setAdapter(adapter);
+        rw.setAdapter(adapter);
     }
-    private List<MetaDB> getRecords(){
+
+    private List<MetaDB> getRecords() {
         String backward_recordId = getIntent().getStringExtra("Record");
         List<String> forwardedRecordsUri = LoginActivity.db.ForwardReferenceDAO().ForwardedRecordsUri(backward_recordId);
-        List<MetaDB> forwRecords = new ArrayList<MetaDB>();
-        for(int i=0;i<forwardedRecordsUri.size();i++){
+        List<MetaDB> forwRecords = new ArrayList<>();
+        for (int i = 0; i < forwardedRecordsUri.size(); i++) {
             forwRecords.add(LoginActivity.db.metaDAO().getFromUri(forwardedRecordsUri.get(i)));
         }
         return forwRecords;

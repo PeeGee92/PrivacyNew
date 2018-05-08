@@ -54,7 +54,7 @@
         <activity android:name=".company.CompanyOriginalRecordsActivity"
             android:parentActivityName=".company.CompanyMainActivity"/>
 
-        <activity android:name=".company.RequestActivity"
+        <activity android:name=".company.ForwardActivity"
             android:parentActivityName=".company.CompanyMainActivity"/>
 
     </application>
