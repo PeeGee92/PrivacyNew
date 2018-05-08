@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -23,6 +24,10 @@ public class CompanyDataActivity extends AppCompatActivity {
     Button btnSave;
     @BindView(R.id.btnCancel)
     Button btnCancel;
+    @BindView(R.id.btnChangeName)
+    Button btnChangeName;
+    @BindView(R.id.etCompanyName)
+    EditText etCompanyName;
     @BindView(R.id.tvEmail)
     TextView tvEmail;
     @BindView(R.id.etFirstName)
@@ -78,6 +83,8 @@ public class CompanyDataActivity extends AppCompatActivity {
 
     private void setDataToFields() {
 
+        etCompanyName.setText(companyDB.getCompanyName());
+
         swEmail.setChecked(companyDB.getCompanyRequiredFields().get(new UserEnum().returnValue("userEmail")));
         swFirstName.setChecked(companyDB.getCompanyRequiredFields().get(new UserEnum().returnValue("userFirstName")));
         swLastName.setChecked(companyDB.getCompanyRequiredFields().get(new UserEnum().returnValue("userLastName")));
@@ -89,6 +96,8 @@ public class CompanyDataActivity extends AppCompatActivity {
     }
 
     private void updateCompanyRequestedData() {
+
+        companyDB.setCompanyName(etCompanyName.getText().toString().trim());
 
         companyDB.getCompanyRequiredFields().set(new UserEnum().returnValue("userEmail"), swEmail.isChecked());
         companyDB.getCompanyRequiredFields().set(new UserEnum().returnValue("userFirstName"), swFirstName.isChecked());
