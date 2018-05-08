@@ -40,6 +40,7 @@ public class CompanyOriginalRecordsActivity extends AppCompatActivity {
         MetaDB actual;
         for(int i =0;i<contracts.size();i++) {
             actual= contracts.get(i);
+            if(actual.getDeleted()){continue;}
             String sharelist = shareListTotString(actual.getShareList());
             contractsList.add(
                     "URI".concat(actual.getUri()).concat("\n")
