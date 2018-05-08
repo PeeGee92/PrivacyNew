@@ -145,11 +145,10 @@ public class DatabaseManager {
             for (int i = 0; i < ListUsersWithoutRepetitions.size(); i++) {
                 if (ListUsersWithoutRepetitions.get(i) == actualUser) {
                     actuallyInList = true;
-                    break;
                 }
-                if (!actuallyInList) {
-                    ListUsersWithoutRepetitions.add(actualUser);
-                }
+            }
+            if (!actuallyInList) {
+                ListUsersWithoutRepetitions.add(actualUser);
             }
         }
         return ListUsersWithoutRepetitions;
