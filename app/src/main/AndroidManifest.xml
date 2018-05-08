@@ -40,6 +40,12 @@
             android:name=".user.TrackRecursiveActivity"
             android:parentActivityName=".user.UserMainActivity" />
         <activity
+            android:name=".user.ModifyContractsActivity"
+            android:parentActivityName=".user.UserMainActivity" />
+        <activity
+            android:name=".user.ChangeContractActivity"
+            android:parentActivityName=".user.ModifyContractsActivity" />
+        <activity
             android:name=".company.CompanyMainActivity"
             android:parentActivityName=".LoginActivity" />
         <activity
@@ -57,8 +63,7 @@
         <activity
             android:name=".company.ForwardActivity"
             android:parentActivityName=".company.CompanyMainActivity" />
-        <activity android:name=".user.ModifyContractsActivity" />
-        <activity android:name=".user.ChangeContractActivity"></activity>
+        <activity android:name=".company.CompanyAllRecordsActivity"></activity>
     </application>
 
 </manifest>

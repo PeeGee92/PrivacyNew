@@ -10,15 +10,13 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import comp_431.privacytracking.LoginActivity;
 import comp_431.privacytracking.R;
 import comp_431.privacytracking.company.adapters.OriginalContractsAdapter;
 import comp_431.privacytracking.database.meta_data.MetaDB;
 import comp_431.privacytracking.user.UserEnum;
 
-
-public class CompanyOriginalRecordsActivity extends AppCompatActivity {
+public class CompanyAllRecordsActivity extends AppCompatActivity {
 
     @BindView(R.id.OriginalContracts)
     RecyclerView originalContracts;

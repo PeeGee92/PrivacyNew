@@ -21,6 +21,8 @@ public class CompanyMainActivity extends AppCompatActivity {
     Button btnOriginalRecords;
     @BindView(R.id.btn_forward_contracts)
     Button btnForwardContracts;
+    @BindView(R.id.btn_show_all_contracts)
+    Button btnShowAllContracts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +45,9 @@ public class CompanyMainActivity extends AppCompatActivity {
                 break;
             case R.id.btn_forward_contracts:
                 startActivity(new Intent(this, ForwardActivity.class));
+                break;
+            case R.id.btn_show_all_contracts:
+
                 break;
         }
     }
