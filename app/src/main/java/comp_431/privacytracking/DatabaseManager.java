@@ -147,9 +147,9 @@ public class DatabaseManager {
                     actuallyInList = true;
                     break;
                 }
-            }
-            if (!actuallyInList) {
-                ListUsersWithoutRepetitions.add(actualUser);
+                if (!actuallyInList) {
+                    ListUsersWithoutRepetitions.add(actualUser);
+                }
             }
         }
         return ListUsersWithoutRepetitions;
