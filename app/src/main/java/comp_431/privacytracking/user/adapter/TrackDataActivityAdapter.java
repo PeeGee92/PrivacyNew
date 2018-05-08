@@ -11,6 +11,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import comp_431.privacytracking.LoginActivity;
 import comp_431.privacytracking.R;
 import comp_431.privacytracking.database.meta_data.MetaDB;
 import comp_431.privacytracking.user.TrackRecursiveActivity;
@@ -72,10 +73,10 @@ public class TrackDataActivityAdapter extends RecyclerView.Adapter<TrackDataActi
             result += (record.getRootId());
             result += ("\n");
             result += ("Creation Time ");
-            result += (record.getCreationTime().toString());
+            result += (LoginActivity.dbmanag.timeStampFormat.format(record.getCreationTime()));
             result += ("\n");
             result += ("Expiration Time ");
-            result += (record.getExpirationTime().toString());
+            result += (LoginActivity.dbmanag.timeStampFormat.format(record.getExpirationTime()));
             result += ("\n");
             result += ("Deleted ");
             result += (record.getDeleted().toString());

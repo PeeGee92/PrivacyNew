@@ -63,7 +63,8 @@
         <activity
             android:name=".company.ForwardActivity"
             android:parentActivityName=".company.CompanyMainActivity" />
-        <activity android:name=".company.CompanyAllRecordsActivity"></activity>
+        <activity android:name=".company.CompanyAllRecordsActivity"
+            android:parentActivityName=".company.CompanyMainActivity" />
     </application>
 
 </manifest>

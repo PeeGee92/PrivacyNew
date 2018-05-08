@@ -65,10 +65,10 @@ public class CompanyAllRecordsActivity extends AppCompatActivity {
         result += (record.getRootId());
         result += ("\n");
         result += ("Creation Time ");
-        result += (record.getCreationTime().toString());
+        result += (LoginActivity.dbmanag.timeStampFormat.format(record.getCreationTime()));
         result += ("\n");
         result += ("Expiration Time ");
-        result += (record.getExpirationTime().toString());
+        result += (LoginActivity.dbmanag.timeStampFormat.format(record.getExpirationTime()));
         result += ("\n");
         result += ("Deleted ");
         result += (record.getDeleted().toString());

@@ -31,7 +31,7 @@ public class CompanyMainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.btn_users_list, R.id.btn_company_data, R.id.btn_original_records, R.id.btn_forward_contracts})
+    @OnClick({R.id.btn_users_list, R.id.btn_company_data, R.id.btn_original_records, R.id.btn_forward_contracts, R.id.btn_show_all_contracts})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_users_list:
@@ -47,7 +47,7 @@ public class CompanyMainActivity extends AppCompatActivity {
                 startActivity(new Intent(this, ForwardActivity.class));
                 break;
             case R.id.btn_show_all_contracts:
-
+                startActivity(new Intent(this, CompanyAllRecordsActivity.class));
                 break;
         }
     }
