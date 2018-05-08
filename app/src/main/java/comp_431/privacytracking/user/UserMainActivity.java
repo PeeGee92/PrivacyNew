@@ -19,6 +19,8 @@ public class UserMainActivity extends AppCompatActivity {
     Button btnUserData;
     @BindView(R.id.btn_track_data)
     Button btnTrackData;
+    @BindView(R.id.btn_modify_contracts)
+    Button btnModifyContracts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,9 @@ public class UserMainActivity extends AppCompatActivity {
                 break;
             case R.id.btn_track_data:
                 startActivity(new Intent(this, TrackDataActivity.class));
+                break;
+            case R.id.btn_modify_contracts:
+                //startActivity(new Intent(this, ModifyContractsActivity.class));
                 break;
         }
     }

@@ -34,7 +34,6 @@ public class CompanyListActivity extends AppCompatActivity {
         rvCompanies.setAdapter(adapter);
     }
 
-    // TODO
     private List<CompanyDB> getCompaniesList() {
        return LoginActivity.dbmanag.companiesUserHasNoContractWith();
     }

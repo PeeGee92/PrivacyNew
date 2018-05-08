@@ -24,39 +24,41 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".user.UserMainActivity"
-            android:parentActivityName=".LoginActivity"/>
-
-        <activity android:name=".user.CompanyListActivity"
-            android:parentActivityName=".user.UserMainActivity"/>
-
-        <activity android:name=".user.TrackDataActivity"
-            android:parentActivityName=".user.UserMainActivity"/>
-
-        <activity android:name=".user.UserDataActivity"
-            android:parentActivityName=".user.UserMainActivity"/>
-
-        <activity android:name=".user.TrackRecursiveActivity"
-            android:parentActivityName=".user.UserMainActivity"/>
-
-        <activity android:name=".company.CompanyMainActivity"
-            android:parentActivityName=".LoginActivity"/>
-
-        <activity android:name=".company.UserContractsActivity"
-            android:parentActivityName=".company.CompanyMainActivity"/>
-
-        <activity android:name=".company.UserListActivity"
-            android:parentActivityName=".company.CompanyMainActivity"/>
-
-        <activity android:name=".company.CompanyDataActivity"
-            android:parentActivityName=".company.CompanyMainActivity"/>
-
-        <activity android:name=".company.CompanyOriginalRecordsActivity"
-            android:parentActivityName=".company.CompanyMainActivity"/>
-
-        <activity android:name=".company.RequestActivity"
-            android:parentActivityName=".company.CompanyMainActivity"/>
-
+        <activity
+            android:name=".user.UserMainActivity"
+            android:parentActivityName=".LoginActivity" />
+        <activity
+            android:name=".user.CompanyListActivity"
+            android:parentActivityName=".user.UserMainActivity" />
+        <activity
+            android:name=".user.TrackDataActivity"
+            android:parentActivityName=".user.UserMainActivity" />
+        <activity
+            android:name=".user.UserDataActivity"
+            android:parentActivityName=".user.UserMainActivity" />
+        <activity
+            android:name=".user.TrackRecursiveActivity"
+            android:parentActivityName=".user.UserMainActivity" />
+        <activity
+            android:name=".company.CompanyMainActivity"
+            android:parentActivityName=".LoginActivity" />
+        <activity
+            android:name=".company.UserContractsActivity"
+            android:parentActivityName=".company.CompanyMainActivity" />
+        <activity
+            android:name=".company.UserListActivity"
+            android:parentActivityName=".company.CompanyMainActivity" />
+        <activity
+            android:name=".company.CompanyDataActivity"
+            android:parentActivityName=".company.CompanyMainActivity" />
+        <activity
+            android:name=".company.CompanyOriginalRecordsActivity"
+            android:parentActivityName=".company.CompanyMainActivity" />
+        <activity
+            android:name=".company.RequestActivity"
+            android:parentActivityName=".company.CompanyMainActivity" />
+        <activity android:name=".user.ModifyContractsActivity" />
+        <activity android:name=".user.ChangeContractActivity"></activity>
     </application>
 
 </manifest>
