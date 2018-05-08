@@ -51,6 +51,7 @@ public class TrackDataActivityAdapter extends RecyclerView.Adapter<TrackDataActi
     public void onBindViewHolder(TrackDataActivityAdapter.ViewHolder holder, int position) {
         holder.tv.setText(RecordToString(originalRecords.get(position)));
     }
+
     // Make a list with all this user´s contracts.
     private String RecordToString(MetaDB record){
             String result = "";

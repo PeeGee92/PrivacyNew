@@ -42,7 +42,7 @@ public class CompanyMainActivity extends AppCompatActivity {
                 startActivity(new Intent(this, CompanyOriginalRecordsActivity.class));
                 break;
             case R.id.btn_forward_contracts:
-                startActivity(new Intent(this, RequestActivity.class));
+                startActivity(new Intent(this, ForwardActivity.class));
                 break;
         }
     }

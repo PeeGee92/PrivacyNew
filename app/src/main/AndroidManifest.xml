@@ -55,7 +55,7 @@
             android:name=".company.CompanyOriginalRecordsActivity"
             android:parentActivityName=".company.CompanyMainActivity" />
         <activity
-            android:name=".company.RequestActivity"
+            android:name=".company.ForwardActivity"
             android:parentActivityName=".company.CompanyMainActivity" />
         <activity android:name=".user.ModifyContractsActivity" />
         <activity android:name=".user.ChangeContractActivity"></activity>
