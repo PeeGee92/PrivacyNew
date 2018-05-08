@@ -164,14 +164,6 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            boolean coorectType = checkUserType();
-
-                            if (!coorectType) {
-                                Toast.makeText(LoginActivity.this, "Registration failed! Please try again",
-                                        Toast.LENGTH_SHORT).show();
-                                return;
-                            }
-
                             currentUser = mAuth.getCurrentUser();
                             userWithDB(true);
                         } else {
