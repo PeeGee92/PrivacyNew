@@ -119,9 +119,9 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            boolean coorectType = checkUserType();
+                            boolean correctType = checkUserType();
 
-                            if (!coorectType) {
+                            if (!correctType) {
                                 Toast.makeText(LoginActivity.this, "Wrong user type selected",
                                         Toast.LENGTH_SHORT).show();
                                 return;
