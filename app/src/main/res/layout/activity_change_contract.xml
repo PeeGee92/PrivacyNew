@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@+id/btnSave"
         android:layout_alignParentEnd="true">
 
         <Switch
@@ -206,7 +206,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@+id/btnSave"
         android:layout_alignParentStart="true">
 
         <TextView
@@ -273,5 +273,13 @@
             tools:layout_editor_absoluteY="362dp" />
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save Changes"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"/>
 
 </RelativeLayout>
