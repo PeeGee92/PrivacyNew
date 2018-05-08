@@ -6,13 +6,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
 import comp_431.privacytracking.LoginActivity;
 import comp_431.privacytracking.R;
 
-public class Request1Adapter extends RecyclerView.Adapter<Request1Adapter.ViewHolder> {
+public class ForwardAdapter extends RecyclerView.Adapter<ForwardAdapter.ViewHolder> {
 
 
     List<String> companiesList;
@@ -22,6 +23,8 @@ public class Request1Adapter extends RecyclerView.Adapter<Request1Adapter.ViewHo
         public void onClick(View view) {
             int itemPosition = recyclerView.getChildLayoutPosition(view);
             LoginActivity.dbmanag.CompanyForwardCompany(LoginActivity.currentUser.getUid(),companiesList.get(itemPosition));
+            Toast.makeText(view.getContext(), "Data Forwarded to Company",
+                    Toast.LENGTH_SHORT).show();
         }
     };
     @Override
@@ -31,21 +34,21 @@ public class Request1Adapter extends RecyclerView.Adapter<Request1Adapter.ViewHo
         this.recyclerView = recyclerView;
     }
 
-    public Request1Adapter(List<String> companies){
+    public ForwardAdapter(List<String> companies){
         this.companiesList = companies;
     }
 
     @Override
-    public Request1Adapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ForwardAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_item, parent, false);
         view.setOnClickListener(myOnClickListener);
-        return new Request1Adapter.ViewHolder(view);
+        return new ForwardAdapter.ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(Request1Adapter.ViewHolder holder, int position) {
-        // TODO get names from list
-        holder.tv.setText(companiesList.get(position));
+    public void onBindViewHolder(ForwardAdapter.ViewHolder holder, int position) {
+        String compName = LoginActivity.db.CompanyDAO().getCompanyById(companiesList.get(position)).getCompanyName();
+        holder.tv.setText(compName);
 
     }
 

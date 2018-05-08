@@ -29,7 +29,7 @@ public class UserMainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.btn_companies_list, R.id.btn_user_data, R.id.btn_track_data})
+    @OnClick({R.id.btn_companies_list, R.id.btn_user_data, R.id.btn_track_data, R.id.btn_modify_contracts})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_companies_list:
@@ -42,7 +42,7 @@ public class UserMainActivity extends AppCompatActivity {
                 startActivity(new Intent(this, TrackDataActivity.class));
                 break;
             case R.id.btn_modify_contracts:
-                //startActivity(new Intent(this, ModifyContractsActivity.class));
+                startActivity(new Intent(this, ModifyContractsActivity.class));
                 break;
         }
     }

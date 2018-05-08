@@ -72,7 +72,6 @@ public class DatabaseManager {
 
         }
 
-    //TODO: Add some more refined filters ( G.E. range of ages, concrete city..)
     public void CompanyForwardCompany(String CompanyHas, String CompanyWants){
         List<MetaDB> candidates = LoginActivity.db.metaDAO().getAllFromCompany(CompanyHas);
         ArrayList<Boolean> sharelistcandidate;
