@@ -3,6 +3,7 @@ package comp_431.privacytracking.database.meta_data;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
+import android.arch.persistence.room.Update;
 
 import java.util.List;
 
@@ -20,6 +21,9 @@ public interface MetaDAO {
 
     @Insert
     public void insert(MetaDB metaDB);
+
+    @Update
+    public void update(MetaDB metaDB);
 
     @Query("SELECT userId FROM metadb WHERE CompanyID = :Company")
     public List<String> ListAllUsers(String Company);

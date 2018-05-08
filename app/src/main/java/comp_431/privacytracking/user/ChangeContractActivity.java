@@ -1,17 +1,23 @@
 package comp_431.privacytracking.user;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import comp_431.privacytracking.LoginActivity;
 import comp_431.privacytracking.R;
+import comp_431.privacytracking.database.meta_data.MetaDB;
 
 public class ChangeContractActivity extends AppCompatActivity {
 
@@ -92,15 +98,61 @@ public class ChangeContractActivity extends AppCompatActivity {
     @BindView(R.id.btnSave)
     Button btnSave;
 
+    MetaDB metaDB;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_contract);
         ButterKnife.bind(this);
+        metaDB = LoginActivity.db.metaDAO().getFromUri(getIntent().getStringExtra("Record"));
+        setDataToFields();
+    }
+
+    private void setDataToFields() {
+
+        txtBackRef.setText(metaDB.getBackRefId());
+        txtCompanyId.setText(metaDB.getCompanyId());
+        txtCreationTime.setText(metaDB.getCreationTime().toString());
+        txtExpTime.setText(metaDB.getExpirationTime().toString());
+        txtRootId.setText(metaDB.getRootId());
+        txtUri.setText(metaDB.getUri());
+        txtUserId.setText(metaDB.getUserId());
+        
+
+        // DEBUG
+        ArrayList<Boolean> test = metaDB.getShareList();
+
+        swEmail.setChecked(test.get(new UserEnum().returnValue("userEmail")));
+        swFName.setChecked(test.get(new UserEnum().returnValue("userFirstName")));
+        swLName.setChecked(test.get(new UserEnum().returnValue("userLastName")));
+        swAddr.setChecked(test.get(new UserEnum().returnValue("userAddress")));
+        swCountry.setChecked(test.get(new UserEnum().returnValue("userCountry")));
+        swCity.setChecked(test.get(new UserEnum().returnValue("userCity")));
+        swZip.setChecked(test.get(new UserEnum().returnValue("userZip")));
+        swDeleted.setChecked(metaDB.getDeleted());
+    }
+
+    private void updateUserData() {
+        
+        metaDB.getShareList().set(new UserEnum().returnValue("userEmail"), swEmail.isChecked());
+        metaDB.getShareList().set(new UserEnum().returnValue("userFirstName"), swFName.isChecked());
+        metaDB.getShareList().set(new UserEnum().returnValue("userLastName"), swLName.isChecked());
+        metaDB.getShareList().set(new UserEnum().returnValue("userAddress"), swAddr.isChecked());
+        metaDB.getShareList().set(new UserEnum().returnValue("userCountry"), swCountry.isChecked());
+        metaDB.getShareList().set(new UserEnum().returnValue("userCity"), swCity.isChecked());
+        metaDB.getShareList().set(new UserEnum().returnValue("userZip"), swZip.isChecked());
+        metaDB.setDeleted(swDeleted.isChecked());
+
+        LoginActivity.db.metaDAO().update(metaDB);
+
+        startActivity(new Intent(this, UserMainActivity.class));
+
     }
 
 
     @OnClick(R.id.btnSave)
     public void onViewClicked() {
+      updateUserData();
     }
 }
