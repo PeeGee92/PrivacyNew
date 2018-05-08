@@ -14,9 +14,8 @@ import butterknife.OnClick;
 import comp_431.privacytracking.LoginActivity;
 import comp_431.privacytracking.R;
 import comp_431.privacytracking.company.adapters.Request1Adapter;
-import comp_431.privacytracking.company.adapters.UserContractsAdapter;
 
-public class Request1Activity extends AppCompatActivity {
+public class RequestActivity extends AppCompatActivity {
 
     RecyclerView.Adapter adapter;
 
@@ -26,7 +25,7 @@ public class Request1Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_request1);
+        setContentView(R.layout.activity_request);
         ButterKnife.bind(this);
 
         companiesList.setLayoutManager(new LinearLayoutManager(this));
@@ -34,12 +33,10 @@ public class Request1Activity extends AppCompatActivity {
         companiesList.setAdapter(adapter);
     }
     private List<String> getAllCompanyList(){
-        return LoginActivity.db.CompanyDAO().getAllExceptMe(LoginActivity.currentUser.toString());
-    }
-    @OnClick({R.id.userList})
-    public void onViewClicked(View view){
-        switch (view.getId()){
-        }
+
+        List<String> test = LoginActivity.db.CompanyDAO().getAllExceptMe(LoginActivity.currentUser.getUid());
+
+        return test;
     }
 
 }

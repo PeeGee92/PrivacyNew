@@ -35,7 +35,7 @@ public class UserContractsAdapter extends RecyclerView.Adapter<UserContractsAdap
 
     @Override
     public UserContractsAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.adaptor_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_item, parent, false);
         view.setOnClickListener(myOnClickListener);
         return new UserContractsAdapter.ViewHolder(view);
     }

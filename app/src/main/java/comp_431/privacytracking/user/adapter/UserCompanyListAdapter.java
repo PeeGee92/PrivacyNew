@@ -18,6 +18,7 @@ public class UserCompanyListAdapter extends RecyclerView.Adapter<UserCompanyList
     List<CompanyDB> companiesList;
     RecyclerView recyclerView;
     RecyclerView.Adapter adapter;
+    AlertDialog dialog;
 
     public UserCompanyListAdapter(List<CompanyDB> companiesList) {
         this.companiesList = companiesList;
@@ -36,8 +37,6 @@ public class UserCompanyListAdapter extends RecyclerView.Adapter<UserCompanyList
             int itemPosition = recyclerView.getChildLayoutPosition(view);
             final CompanyDB temp = companiesList.get(itemPosition);
 
-            AlertDialog dialog = null;
-
             final AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
 
             final Context context = builder.getContext();
@@ -46,13 +45,12 @@ public class UserCompanyListAdapter extends RecyclerView.Adapter<UserCompanyList
 
             builder.setView(dialogView);
             builder.setTitle("Create Contract");
-            final AlertDialog finalDialog = dialog;
             builder.setPositiveButton("Create", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
                     LoginActivity.dbmanag.UserJoinsCompany(LoginActivity.currentUser.getUid(), temp.getCompanyId());
 
-                    finalDialog.dismiss();
+                    dismissDialog();
 
                     companiesList.remove(temp);
                     adapter = new UserCompanyListAdapter(companiesList);
@@ -61,7 +59,7 @@ public class UserCompanyListAdapter extends RecyclerView.Adapter<UserCompanyList
             }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
-                    finalDialog.dismiss();
+                    dismissDialog();
                 }
             });
 
@@ -70,9 +68,13 @@ public class UserCompanyListAdapter extends RecyclerView.Adapter<UserCompanyList
         }
     };
 
+    private void dismissDialog() {
+        dialog.dismiss();
+    }
+
     @Override
     public UserCompanyListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.adaptor_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_item, parent, false);
         view.setOnClickListener(myOnClickListener);
         adapter = this;
         return new ViewHolder(view);
@@ -80,7 +82,7 @@ public class UserCompanyListAdapter extends RecyclerView.Adapter<UserCompanyList
 
     @Override
     public void onBindViewHolder(UserCompanyListAdapter.ViewHolder holder, int position) {
-        holder.tvCompanyName.setText(companiesList.get(position).getCompanyName());
+        holder.tv.setText(companiesList.get(position).getCompanyName());
     }
 
     @Override
@@ -93,12 +95,12 @@ public class UserCompanyListAdapter extends RecyclerView.Adapter<UserCompanyList
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        TextView tvCompanyName;
+        TextView tv;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
-            tvCompanyName = itemView.findViewById(R.id.tvCompanyName);
+            tv = itemView.findViewById(R.id.tvText);
         }
     }
 }

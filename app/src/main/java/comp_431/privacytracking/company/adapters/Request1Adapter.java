@@ -1,7 +1,6 @@
 package comp_431.privacytracking.company.adapters;
 
 
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +11,6 @@ import java.util.List;
 
 import comp_431.privacytracking.LoginActivity;
 import comp_431.privacytracking.R;
-import comp_431.privacytracking.company.UserContractsActivity;
 
 public class Request1Adapter extends RecyclerView.Adapter<Request1Adapter.ViewHolder> {
 
@@ -23,7 +21,7 @@ public class Request1Adapter extends RecyclerView.Adapter<Request1Adapter.ViewHo
     private final View.OnClickListener myOnClickListener = new View.OnClickListener()  {
         public void onClick(View view) {
             int itemPosition = recyclerView.getChildLayoutPosition(view);
-            LoginActivity.dbmanag.CompanyrequestCompany(LoginActivity.currentUser.toString(),companiesList.get(itemPosition));
+            LoginActivity.dbmanag.CompanyForwardCompany(LoginActivity.currentUser.getUid(),companiesList.get(itemPosition));
         }
     };
     @Override
@@ -39,7 +37,7 @@ public class Request1Adapter extends RecyclerView.Adapter<Request1Adapter.ViewHo
 
     @Override
     public Request1Adapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.adaptor_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_item, parent, false);
         view.setOnClickListener(myOnClickListener);
         return new Request1Adapter.ViewHolder(view);
     }

@@ -19,8 +19,8 @@ public class CompanyMainActivity extends AppCompatActivity {
     Button btnCompanyData;
     @BindView(R.id.btn_original_records)
     Button btnOriginalRecords;
-    @BindView(R.id.btn_request_contracts)
-    Button btnRequestContracts;
+    @BindView(R.id.btn_forward_contracts)
+    Button btnForwardContracts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +29,7 @@ public class CompanyMainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.btn_users_list, R.id.btn_company_data, R.id.btn_original_records})
+    @OnClick({R.id.btn_users_list, R.id.btn_company_data, R.id.btn_original_records, R.id.btn_forward_contracts})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_users_list:
@@ -41,8 +41,8 @@ public class CompanyMainActivity extends AppCompatActivity {
             case R.id.btn_original_records:
                 startActivity(new Intent(this, CompanyOriginalRecordsActivity.class));
                 break;
-            case R.id.btn_request_contracts:
-                startActivity(new Intent(this, Request1Activity.class));
+            case R.id.btn_forward_contracts:
+                startActivity(new Intent(this, RequestActivity.class));
                 break;
         }
     }

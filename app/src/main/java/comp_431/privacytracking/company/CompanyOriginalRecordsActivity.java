@@ -35,7 +35,7 @@ public class CompanyOriginalRecordsActivity extends AppCompatActivity {
     }
 
     private List<String> getContractList(){
-        List<MetaDB> contracts = LoginActivity.dbmanag.companyOriginalContracts(LoginActivity.currentUser.toString());
+        List<MetaDB> contracts = LoginActivity.dbmanag.companyOriginalContracts(LoginActivity.currentUser.getUid());
         List<String> contractsList = new ArrayList<String>();
         MetaDB actual;
         for(int i =0;i<contracts.size();i++) {
