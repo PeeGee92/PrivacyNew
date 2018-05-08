@@ -5,6 +5,7 @@ import android.arch.persistence.room.Room;
 
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -18,10 +19,9 @@ import android.arch.persistence.room.Room;
 import android.content.Context;
 
 
-// TODO: Use convertors when inserting and taking info from the database. ( Long <-> Date)
 public class DatabaseManager {
 
-   //TODO: New User;
+    public static SimpleDateFormat timeStampFormat = new SimpleDateFormat("dd.MM.yy HH:mm:ss");
 
     public void UserJoinsCompany(String userID,String companyID){
         // First We get the user record.

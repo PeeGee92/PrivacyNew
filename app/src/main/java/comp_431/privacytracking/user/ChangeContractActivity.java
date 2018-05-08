@@ -146,7 +146,7 @@ public class ChangeContractActivity extends AppCompatActivity {
 
         LoginActivity.db.metaDAO().update(metaDB);
 
-        startActivity(new Intent(this, UserMainActivity.class));
+        startActivity(new Intent(this, ModifyContractsActivity.class));
 
     }
 

@@ -163,39 +163,47 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true">
+        android:layout_alignParentEnd="true"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/txtRootId"
+            android:layout_margin="5dp"
             android:layout_width="167dp"
             android:layout_height="27dp" />
 
         <TextView
             android:id="@+id/txtBackRef"
+            android:layout_margin="5dp"
             android:layout_width="167dp"
             android:layout_height="27dp" />
 
         <TextView
             android:id="@+id/txtExpTime"
+            android:layout_margin="5dp"
             android:layout_width="167dp"
             android:layout_height="27dp" />
 
         <TextView
             android:id="@+id/txtCreationTime"
+            android:layout_margin="5dp"
             android:layout_width="167dp"
             android:layout_height="27dp" />
 
         <TextView
             android:id="@+id/txtUserId"
+            android:layout_margin="5dp"
             android:layout_width="167dp"
             android:layout_height="27dp" />
 
         <TextView
             android:id="@+id/txtCompanyId"
+            android:layout_margin="5dp"
             android:layout_width="167dp"
             android:layout_height="27dp"/>
         <TextView
             android:id="@+id/txtUri"
+            android:layout_margin="5dp"
             android:layout_width="167dp"
             android:layout_height="27dp" />
 

@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -67,10 +65,10 @@ public class CompanyAllRecordsActivity extends AppCompatActivity {
         result += (record.getRootId());
         result += ("\n");
         result += ("Creation Time ");
-        result += (new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Timestamp(record.getCreationTime())));
+        result += (LoginActivity.dbmanag.timeStampFormat.format(record.getCreationTime()));
         result += ("\n");
         result += ("Expiration Time ");
-        result += (record.getExpirationTime());
+        result += (LoginActivity.dbmanag.timeStampFormat.format(record.getExpirationTime()));
         result += ("\n");
         result += ("Deleted ");
         result += (record.getDeleted().toString());
